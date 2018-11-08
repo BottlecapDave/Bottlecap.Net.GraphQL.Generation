@@ -33,8 +33,7 @@ namespace Bottlecap.Net.GraphQL.Generator.Templates
             var properties = _type.GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
             foreach (var property in properties)
             {
-                if (((property.PropertyType.IsValueType == false) && property.PropertyType != typeof(string)) ||
-                    property.PropertyType == typeof(DateTime))
+                if (((property.PropertyType.IsValueType == false) && property.PropertyType != typeof(string)))
                 {
                     Fields.Add(new ExplicitFieldType(property));
                 }

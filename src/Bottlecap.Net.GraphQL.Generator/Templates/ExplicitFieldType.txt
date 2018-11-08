@@ -1,1 +1,1 @@
-﻿Field<{{TypeName}}GraphType>().Name("{{Name}}").Description("{{Description}}");
+﻿Field<{{{TypeName}}}>().Name("{{Name}}").Description("{{Description}}").Resolve(context => context.Source.{{Name}});

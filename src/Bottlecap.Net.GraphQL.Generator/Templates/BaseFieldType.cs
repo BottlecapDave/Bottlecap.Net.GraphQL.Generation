@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generator.Templates
 {
@@ -25,6 +26,19 @@ namespace Bottlecap.Net.GraphQL.Generator.Templates
                 }
 
                 return "";
+            }
+        }
+
+        public string IsNullable
+        {
+            get
+            {
+                if (Nullable.GetUnderlyingType(_property.PropertyType) != null)
+                {
+                    return "true";
+                }
+
+                return "false";
             }
         }
 

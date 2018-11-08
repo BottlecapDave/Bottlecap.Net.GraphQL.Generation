@@ -1,4 +1,4 @@
-﻿public class {{Name}}GraphType : InputObjectGraphType<{{namespace}}.{{Name}}>
+﻿public partial class {{Name}}GraphType : InputObjectGraphType<{{namespace}}.{{Name}}>
 {
 	public {{Name}}GraphType()
 	{

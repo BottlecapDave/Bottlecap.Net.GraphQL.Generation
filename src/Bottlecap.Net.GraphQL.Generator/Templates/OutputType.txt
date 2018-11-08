@@ -1,4 +1,4 @@
-﻿public class {{Name}}GraphType : ObjectGraphType<{{namespace}}.{{Name}}>
+﻿public partial class {{Name}}GraphType : ObjectGraphType<{{namespace}}.{{Name}}>
 {
 	public {{Name}}GraphType()
 	{

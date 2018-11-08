@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 
 namespace Bottlecap.Net.GraphQL.Generator.ConsoleExample.Classes
@@ -11,8 +12,17 @@ namespace Bottlecap.Net.GraphQL.Generator.ConsoleExample.Classes
         [Description("The name of the do list")]
         public string Name { get; set; }
 
+        // This is demonstrating that a complex type can be referenced
         [Description("The user who owns the list")]
         public User User { get; set; }
+
+        // This is demonstrating that a list of items can be referenced
+        [Description("The tags associated with the to do list")]
+        public string[] Tags { get; set; }
+
+        // This is demonstrating that a complex type can be referenced
+        [Description("The list of users who are owners of the list")]
+        public IEnumerable<User> Owners { get; set; }
 
         [Description("The id of the user who created this to do list")]
         public long? CreationUserId { get; set; }
