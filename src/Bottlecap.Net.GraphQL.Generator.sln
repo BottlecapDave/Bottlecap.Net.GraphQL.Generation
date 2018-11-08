@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bottlecap.Net.GraphQL.Generator", "Bottlecap.Net.GraphQL.Generator\Bottlecap.Net.GraphQL.Generator.csproj", "{234F1B9F-2BDC-49C7-B853-EB08E84ED421}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bottlecap.Net.GraphQL.Generator", "Bottlecap.Net.GraphQL.Generator\Bottlecap.Net.GraphQL.Generator.csproj", "{234F1B9F-2BDC-49C7-B853-EB08E84ED421}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{B05D2BE7-E050-4F38-B2F6-3B3F86554ED6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bottlecap.Net.GraphQL.Generator.ConsoleExample", "Bottlecap.Net.GraphQL.Generator.ConsoleExample\Bottlecap.Net.GraphQL.Generator.ConsoleExample.csproj", "{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bottlecap.Net.GraphQL.Generator.ConsoleExample", "Examples\Bottlecap.Net.GraphQL.Generator.ConsoleExample\Bottlecap.Net.GraphQL.Generator.ConsoleExample.csproj", "{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,16 +19,16 @@ Global
 		{234F1B9F-2BDC-49C7-B853-EB08E84ED421}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{234F1B9F-2BDC-49C7-B853-EB08E84ED421}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{234F1B9F-2BDC-49C7-B853-EB08E84ED421}.Release|Any CPU.Build.0 = Release|Any CPU
-		{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{80FFA1ED-0DB4-469D-B436-FE9F5FD06EC2} = {B05D2BE7-E050-4F38-B2F6-3B3F86554ED6}
+		{4B479A7B-319F-43E8-A5B2-4CA5BB0104D8} = {B05D2BE7-E050-4F38-B2F6-3B3F86554ED6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6449F9F-F36D-4E29-8A7D-5A03630EA928}

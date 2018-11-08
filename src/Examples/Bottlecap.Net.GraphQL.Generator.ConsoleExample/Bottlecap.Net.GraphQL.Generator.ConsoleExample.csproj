@@ -15,11 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Bottlecap.Net.GraphQL.Generator\Bottlecap.Net.GraphQL.Generator.csproj" />
+    <PackageReference Include="GraphQL" Version="2.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraphQL" Version="2.3.0" />
+    <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generator\Bottlecap.Net.GraphQL.Generator.csproj" />
   </ItemGroup>
 
 </Project>
