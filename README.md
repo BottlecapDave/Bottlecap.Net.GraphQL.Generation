@@ -1,0 +1,1 @@
+# Bottlecap.Net.GraphQL.Generator
