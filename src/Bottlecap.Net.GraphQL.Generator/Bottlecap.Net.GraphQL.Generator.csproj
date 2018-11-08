@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Bottlecap.Net.GraphQL.Generator</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Templates\ClassCollection.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\ExplicitFieldType.txt" />
+    <EmbeddedResource Include="Templates\BaseFieldType.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\InputType.txt" />
+    <EmbeddedResource Include="Templates\OutputType.txt" />
+    <EmbeddedResource Include="Templates\Shell.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Handlebars.Net" Version="1.9.5" />
+  </ItemGroup>
+
+</Project>

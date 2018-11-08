@@ -1,0 +1,10 @@
+﻿public class {{Name}}GraphType : ObjectGraphType<{{namespace}}.{{Name}}>
+{
+	public {{Name}}GraphType()
+	{
+		Name = "{{Name}}";
+		{{#each Fields}}
+		{{{this}}}
+		{{/each}}
+	}
+}
