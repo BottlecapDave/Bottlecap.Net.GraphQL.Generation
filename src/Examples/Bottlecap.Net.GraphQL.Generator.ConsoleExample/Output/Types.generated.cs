@@ -12,7 +12,6 @@ namespace TestNamespace
 		Name = "User";
 		Field(x => x.Id, nullable: false).Description("The id of the user");
 		Field(x => x.Username, nullable: false).Description("The username of the user");
-		Field(x => x.Password, nullable: false).Description("The password of the user");
 	}
 }
 
@@ -28,6 +27,17 @@ namespace TestNamespace
 		Field<ListGraphType<UserGraphType>>().Name("Owners").Description("The list of users who are owners of the list").Resolve(context => context.Source.Owners);
 		Field(x => x.CreationUserId, nullable: true).Description("The id of the user who created this to do list");
 		Field(x => x.CreationUserTimestamp, nullable: false).Description("The time at which the to do list was created");
+	}
+}
+
+	public partial class UserInputGraphType : InputObjectGraphType<Bottlecap.Net.GraphQL.Generator.ConsoleExample.Classes.User>
+{
+	public UserInputGraphType()
+	{
+		Name = "UserInput";
+		Field(x => x.Id, nullable: false).Description("The id of the user");
+		Field(x => x.Username, nullable: false).Description("The username of the user");
+		Field(x => x.Password, nullable: false).Description("The password of the user");
 	}
 }
 

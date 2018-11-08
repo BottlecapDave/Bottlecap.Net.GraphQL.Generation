@@ -1,8 +1,8 @@
-﻿public partial class {{Name}}GraphType : InputObjectGraphType<{{namespace}}.{{Name}}>
+﻿public partial class {{Name}}InputGraphType : InputObjectGraphType<{{namespace}}.{{Name}}>
 {
-	public {{Name}}GraphType()
+	public {{Name}}InputGraphType()
 	{
-		Name = "{{Name}}";
+		Name = "{{Name}}Input";
 		{{#each Fields}}
 		{{{this}}}
 		{{/each}}

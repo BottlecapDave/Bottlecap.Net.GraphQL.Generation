@@ -4,7 +4,7 @@ namespace Bottlecap.Net.GraphQL.Generator.Templates
 {
     public class OutputType : BaseType
     {
-        public OutputType(Type type)
+        public OutputType(TypeDefinition type)
             : base(type)
         {
         }
