@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL" Version="2.3.0" />
+    <PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GraphQLExample.Data\GraphQLExample.Data.csproj" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="dotnet $(SolutionDir)Bottlecap.Net.GraphQL.Generation.Console/$(OutDir)Bottlecap.Net.GraphQL.Generation.Console.dll -n GraphQLExample.Schemas -o $(ProjectDir)Schemas/types.generated.cs -i $(SolutionDir)Examples/GraphQLExample.Data/bin/$(ConfigurationName)/netstandard2.0/GraphQLExample.Data.dll" />
+  </Target>
+
+</Project>

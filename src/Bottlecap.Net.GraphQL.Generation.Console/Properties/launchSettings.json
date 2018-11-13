@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Bottlecap.Net.GraphQL.Generation.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "-o \"../Examples/GraphQLExample/Schemas/Types.generated.cs\" -n \"GraphQLExamples.Schemas\" -i \"../Examples\\GraphQLExample\\GraphQLExample.Data\\bin\\Debug\\netstandard2.0\\GraphQLExample.Data.dll\""
+    }
+  }
+}

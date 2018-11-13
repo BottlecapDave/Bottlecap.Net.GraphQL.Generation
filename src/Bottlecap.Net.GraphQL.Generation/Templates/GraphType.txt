@@ -1,0 +1,13 @@
+﻿public partial class {{ClassName}} : {{#if IsInput}}InputObjectGraphType{{/if}}{{#if IsOutput}}ObjectGraphType{{/if}}<{{namespace}}.{{Name}}>
+{
+	public {{ClassName}}()
+	{
+		Name = "{{Name}}";
+		{{#each Fields}}
+		{{{this}}}
+		{{/each}}
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}

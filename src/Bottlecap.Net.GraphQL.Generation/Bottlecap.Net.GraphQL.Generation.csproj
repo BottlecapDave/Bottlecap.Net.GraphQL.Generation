@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>Bottlecap.Net.GraphQL.Generation</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\BaseFieldType.txt" />
+    <EmbeddedResource Include="Templates\ExplicitFieldType.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\GraphType.txt" />
+    <EmbeddedResource Include="Templates\Shell.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GraphQL" Version="2.3.0" />
+    <PackageReference Include="Handlebars.Net" Version="1.9.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bottlecap.Net.GraphQL.Generation.Attributes\Bottlecap.Net.GraphQL.Generation.Attributes.csproj" />
+  </ItemGroup>
+
+</Project>

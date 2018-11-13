@@ -1,3 +1,6 @@
-src/.vs/
-**/bin
-**/obj
+**/obj/
+**/bin/
+**/.vs/
+**/out/
+build.cmd
+src/Examples/GraphQLExample/Schemas/types.generated.cs
