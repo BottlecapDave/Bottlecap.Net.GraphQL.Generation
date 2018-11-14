@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
-    public class GraphType : BaseTemplate
+    public class GraphType : BaseTemplate, IGraphType
     {
         private readonly TypeDefinition _typeDefinition;
 
@@ -72,7 +72,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                     continue;
                 }
 
-                if (((property.PropertyType.IsValueType == false) && property.PropertyType != typeof(string)))
+                if (((property.PropertyType.IsValueType == false) && property.PropertyType != typeof(string)) ||
+                    property.PropertyType.IsEnum)
                 {
                     Fields.Add(new ExplicitFieldType(property, propertyDefiniton));
                 }

@@ -18,7 +18,7 @@ namespace Bottlecap.Net.GraphQL.Generation
                 var attribute = type.GetCustomAttribute<GraphTypeAttribute>();
                 if (attribute != null)
                 {
-                    if (attribute.IsInput)
+                    if (attribute.IsInput && type.IsEnum == false)
                     {
                         _inputGraphTypesToGenerate.Add(new TypeDefinition(type) { IsInput = true });
                     }
@@ -56,7 +56,14 @@ namespace Bottlecap.Net.GraphQL.Generation
 
             foreach (var item in _graphTypesToGenerate)
             {
-                shell.Classes.Add(new GraphType(item));
+                if (item.Type.IsEnum)
+                {
+                    shell.Classes.Add(new EnumerationGraphType(item));
+                }
+                else
+                {
+                    shell.Classes.Add(new GraphType(item));
+                }
             }
 
             foreach (var item in _inputGraphTypesToGenerate)

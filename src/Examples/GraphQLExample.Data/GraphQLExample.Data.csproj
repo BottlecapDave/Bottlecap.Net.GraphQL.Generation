@@ -9,4 +9,8 @@
     <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generation.Attributes\Bottlecap.Net.GraphQL.Generation.Attributes.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="dotnet &quot;$(SolutionDir)Bottlecap.Net.GraphQL.Generation.Console\bin\$(ConfigurationName)\netcoreapp2.1\Bottlecap.Net.GraphQL.Generation.Console.dll&quot; -n GraphQLExample.Schemas -o $(SolutionDir)Examples\GraphQLExample\Schemas\types.generated.cs -i $(TargetPath)" />
+  </Target>
+
 </Project>

@@ -26,6 +26,9 @@ namespace GraphQLExample.Data
         [Description("The list of users who are owners of the list")]
         public IEnumerable<User> Owners { get; set; }
 
+        [Description("The current state of the to do list")]
+        public ToDoListState State { get; set; }
+
         [Description("The id of the user who created this to do list")]
         public long? CreationUserId { get; set; }
 
