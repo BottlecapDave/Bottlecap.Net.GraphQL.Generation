@@ -1,9 +1,5 @@
 # Bottlecap.Net.GraphQL.Generation
 
-![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.svg)
-![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.attributes.svg)
-![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.console.svg)
-
 The purpose of this is to support the generation of GraphTypes for [.Net GraphQL](https://graphql-dotnet.github.io/) based on existing entities.
 
 ## Why does this exist?
@@ -14,6 +10,9 @@ Therefore, I created this toolset to generate extendable GraphType objects based
 
 ## How does it work?
 ### Bottlecap.Net.GraphQL.Generation.Attributes
+
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.attributes.svg)
+
 This provides attributes which are used to decorate classes that you wish to have graph types generated for. The aim was to support bespoke attributing at a minimum for most scenarios.
 
 Therefore, this will generate a field for each public property using descriptions defined using the **System.ComponentModel.Description** attribute.
@@ -22,11 +21,19 @@ If there are properties you don't want to expose, then is a **GraphTypeProperty*
 
 ### Bottlecap.Net.GraphQL.Generation.Console
 
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.console.svg)
+
 // TODO Explain how the console application works
 
 ```
 dotnet Bottlecap.Net.GraphQL.Generation.Console.dll -n GraphQLExample.Schemas -o <<OUTPUT>> -i <<INPUT DLL>
 ```
+
+### Bottlecap.Net.GraphQL.Generation
+
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.svg)
+
+This contains the main generation logic. If you're wanting to upgrade the generator, or generate types without using attributes, then this is the assembly you will want.
 
 ### Example
 
