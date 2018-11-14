@@ -1,8 +1,8 @@
 # Bottlecap.Net.GraphQL.Generation
 
-[Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.svg)
-[Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.attributes.svg)
-[Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.console.svg)
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.svg)
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.attributes.svg)
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.console.svg)
 
 The purpose of this is to support the generation of GraphTypes for [.Net GraphQL](https://graphql-dotnet.github.io/) based on existing entities.
 
