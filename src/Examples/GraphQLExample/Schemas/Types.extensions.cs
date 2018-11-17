@@ -5,18 +5,13 @@ namespace GraphQLExample.Schemas
 {
     public partial class ToDoListGraphType
     {
-        public ToDoListGraphType(IDataLoaderContextAccessor accessor)
+        public ToDoListGraphType(IDataLoaderContextAccessor accessor, IUserRepository userRepository)
             : this()
         {
             // Example of extending a generate graph type with additional resolvers
-            Field<UserGraphType, User>().Name("CreationUser").Description("The user who created the list").Resolve(context =>
+            Field<UserGraphType, User>().Name("CreationUser").Description("The user who created the list").ResolveAsync(context =>
             {
-                return new User()
-                {
-                    Id = 1000,
-                    Username = "Dave",
-                    Password = "Password"
-                };
+                return accessor.GetUsersByIdsAsync(userRepository, () => context.Source.CreationUserId);
             });
         }
     }

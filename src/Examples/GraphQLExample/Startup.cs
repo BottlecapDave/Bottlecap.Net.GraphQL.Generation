@@ -10,6 +10,7 @@ using GraphQL;
 using GraphQL.Http;
 using GraphQL.DataLoader;
 using GraphQL.Execution;
+using GraphQLExample.Data;
 
 namespace GraphQLExample
 {
@@ -28,6 +29,8 @@ namespace GraphQLExample
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             AddGraphQL(services);
+
+            services.AddScoped<IUserRepository, UserRepository>();
         }
 
         private void AddGraphQL(IServiceCollection services)
