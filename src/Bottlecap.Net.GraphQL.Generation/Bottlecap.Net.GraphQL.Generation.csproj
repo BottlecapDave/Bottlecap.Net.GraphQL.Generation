@@ -4,6 +4,11 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Bottlecap.Net.GraphQL.Generation</RootNamespace>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="Templates\DataLoader.txt" />
+    <EmbeddedResource Include="Templates\DataLoaderExtensions.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Templates\BaseFieldType.txt" />

@@ -10,21 +10,30 @@ namespace Bottlecap.Net.GraphQL.Generation
     {
         private readonly List<TypeDefinition> _inputGraphTypesToGenerate = new List<TypeDefinition>();
         private readonly List<TypeDefinition> _graphTypesToGenerate = new List<TypeDefinition>();
+        private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
         public void RegisterTypes(Assembly assembly)
         {
             foreach (var type in assembly.GetTypes())
             {
-                var attribute = type.GetCustomAttribute<GraphTypeAttribute>();
-                if (attribute != null)
+                var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
+                if (graphTypeAttribute != null)
                 {
-                    if (attribute.IsInput && type.IsEnum == false)
+                    if (graphTypeAttribute.IsInput && type.IsEnum == false)
                     {
                         _inputGraphTypesToGenerate.Add(new TypeDefinition(type) { IsInput = true });
                     }
                     else
                     {
                         _graphTypesToGenerate.Add(new TypeDefinition(type));
+                    }
+                }
+                else
+                {
+                    var dataLoaderAttribute = type.GetCustomAttribute<DataLoadersAttribute>();
+                    if (dataLoaderAttribute != null)
+                    {
+                        _dataLoaderTypesToGenerate.Add(new TypeDefinition(type));
                     }
                 }
             }
@@ -38,6 +47,11 @@ namespace Bottlecap.Net.GraphQL.Generation
         public void RegisterGraphTypes(params TypeDefinition[] typesToGenerate)
         {
             _graphTypesToGenerate.AddRange(typesToGenerate);
+        }
+
+        public void RegisterDataLoaders(params TypeDefinition[] typesToGenerate)
+        {
+            _dataLoaderTypesToGenerate.AddRange(typesToGenerate);
         }
 
         public void Generate(string outputPath, string targetNamespace)
@@ -69,6 +83,11 @@ namespace Bottlecap.Net.GraphQL.Generation
             foreach (var item in _inputGraphTypesToGenerate)
             {
                 shell.Classes.Add(new GraphType(item, true));
+            }
+
+            foreach (var item in _dataLoaderTypesToGenerate)
+            {
+                shell.Classes.Add(new DataLoaderExtensions(item));
             }
 
             return shell.ToString();

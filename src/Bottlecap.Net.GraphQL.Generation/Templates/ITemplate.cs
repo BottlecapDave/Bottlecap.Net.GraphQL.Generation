@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
-    public interface IGraphType
+    public interface ITemplate
     {
     }
 }

@@ -1,0 +1,7 @@
+﻿ public static Task<{{ReturnType}}> {{Name}}(this IDataLoaderContextAccessor accessor, 
+                                             {{ClassName}} repository,
+                                             Func<{{KeyType}}> keySelector)
+{
+    var loader = accessor.Context.GetOrAddBatchLoader<{{KeyType}}, {{ReturnType}}>("{{ClassName}}.{{Name}}", repository.{{Name}});
+    return loader.LoadAsync(keySelector());
+}

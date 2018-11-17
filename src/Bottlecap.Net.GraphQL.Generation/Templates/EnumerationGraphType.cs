@@ -1,6 +1,6 @@
 ﻿namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
-    public class EnumerationGraphType : BaseTemplate, IGraphType
+    public class EnumerationGraphType : BaseTemplate
     {
         private readonly TypeDefinition _typeDefinition;
 

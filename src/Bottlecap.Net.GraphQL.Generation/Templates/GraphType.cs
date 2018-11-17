@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
-    public class GraphType : BaseTemplate, IGraphType
+    public class GraphType : BaseTemplate
     {
         private readonly TypeDefinition _typeDefinition;
 
