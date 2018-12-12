@@ -27,35 +27,6 @@ If there are properties you don't want to expose, then there is a **GraphTypePro
 
 This will generate an extension method for `GraphQL.IDataLoaderContextAccessor` for each public method in the class that returns a `Task<IDictionary<,>>`.
 
-### Bottlecap.Net.GraphQL.Generation.Cli
-
-![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.cli.svg)
-
-This is the CLI that utilises `Bottlecap.Net.GraphQL.Generation` by taking a given dll, and looking for all classes that implement a `Bottlecap.Net.GraphQL.Generation.Attributes` attribute. It will then generate all GraphQL types in the specified namespace at the specified output location.
-
-#### Installation
-
-You can install the application using [dotnet tool install](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install).
-
-e.g.
-```
-dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\makeawishlist\tool"
-```
-
-#### Using
-
-| Argument | Description |
-|----------|-------------|
-| -i       | The dll to load and find all `Bottlecap.Net.GraphQL.Generation.Attributes` to generate GraphQL types from |
-| -o       | The output path of the generated classes. This will generate a single class file. |
-| -n       | The namesoace the generated class will be in |
-
-An example of running the application would look like the following.
-
-```
-dotnet Bottlecap.Net.GraphQL.Generation.Cli.dll -o <<OUTPUT>> -i <<INPUT DLL> -n GraphQLExample.Schemas
-```
-
 ### Bottlecap.Net.GraphQL.Generation
 
 ![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.svg)
@@ -106,7 +77,7 @@ public partial class UserGraphType : ObjectGraphType<GraphQLExample.Data.User>
 Below is an example of a method defined for data loader generation
 
 ```
-[DataLoader]
+[DataLoaders]
 public class UserRepository : IUserRepository
 {
     public Task<IDictionary<long, User>> GetUsersByIdsAsync(IEnumerable<long> ids)
@@ -129,4 +100,33 @@ public static class IUserRepositoryExtensions
         return loader.LoadAsync(keySelector());
     }
 }
+```
+
+### Bottlecap.Net.GraphQL.Generation.Cli
+
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.cli.svg)
+
+This is the CLI that utilises `Bottlecap.Net.GraphQL.Generation` by taking a given dll, and looking for all classes that implement a `Bottlecap.Net.GraphQL.Generation.Attributes` attribute. It will then generate all GraphQL types in the specified namespace at the specified output location.
+
+#### Installation
+
+You can install the application using [dotnet tool install](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install).
+
+e.g.
+```
+dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\makeawishlist\tool"
+```
+
+#### Using
+
+| Argument | Description |
+|----------|-------------|
+| -i       | The dll to load and find all `Bottlecap.Net.GraphQL.Generation.Attributes` to generate GraphQL types from |
+| -o       | The output path of the generated classes. This will generate a single class file. |
+| -n       | The namesoace the generated class will be in |
+
+An example of running the application would look like the following.
+
+```
+dotnet Bottlecap.Net.GraphQL.Generation.Cli.dll -o <<OUTPUT>> -i <<INPUT DLL> -n GraphQLExample.Schemas
 ```
