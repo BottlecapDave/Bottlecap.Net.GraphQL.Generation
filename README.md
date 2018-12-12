@@ -78,12 +78,9 @@ Below is an example of a method defined for data loader generation
 
 ```
 [DataLoaders]
-public class UserRepository : IUserRepository
+public interface IUserRepository
 {
-    public Task<IDictionary<long, User>> GetUsersByIdsAsync(IEnumerable<long> ids)
-    {
-        // Logic goes here
-    }
+    Task<IDictionary<long, User>> GetUsersByIdsAsync(IEnumerable<long> ids);
 }
 ```
 

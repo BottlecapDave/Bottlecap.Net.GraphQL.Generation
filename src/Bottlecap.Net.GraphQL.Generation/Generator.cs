@@ -1,7 +1,9 @@
 ﻿using Bottlecap.Net.GraphQL.Generation.Attributes;
 using Bottlecap.Net.GraphQL.Generation.Templates;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation
@@ -14,7 +16,8 @@ namespace Bottlecap.Net.GraphQL.Generation
 
         public void RegisterTypes(Assembly assembly)
         {
-            foreach (var type in assembly.GetTypes())
+            var types = GetLoadableTypes(assembly);
+            foreach (var type in types)
             {
                 var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
                 if (graphTypeAttribute != null)
@@ -91,6 +94,23 @@ namespace Bottlecap.Net.GraphQL.Generation
             }
 
             return shell.ToString();
+        }
+
+        private IEnumerable<Type> GetLoadableTypes(Assembly assembly)
+        {
+            if (assembly == null)
+            {
+                throw new ArgumentNullException(nameof(assembly));
+            }
+
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException e)
+            {
+                return e.Types.Where(t => t != null);
+            }
         }
     }
 }
