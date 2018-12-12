@@ -13,20 +13,47 @@ Therefore, I created this toolset to generate extendable GraphType objects based
 
 ![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.attributes.svg)
 
-This provides attributes which are used to decorate classes that you wish to have graph types generated for. The aim was to support bespoke attributing at a minimum for most scenarios.
+This provides attributes which are used to decorate classes that you wish to have graph types and dataloaders generated for. The aim was to support bespoke attributing at a minimum for most scenarios.
 
-Therefore, this will generate a field for each public property using descriptions defined using the **System.ComponentModel.Description** attribute.
+## GraphType
 
-If there are properties you don't want to expose, then is a **GraphTypeProperty** attribute.
+Any class that has this attribute will have a GraphQL type generated for it. Specify `IsInput` if the graph type is used for input.
 
-### Bottlecap.Net.GraphQL.Generation.Console
+This will generate a `GraphType` field for each public property with descriptions defined using the **System.ComponentModel.Description** attribute.
 
-![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.console.svg)
+If there are properties you don't want to expose, then there is a **GraphTypeProperty** attribute, which has an `IsIgnored` flag.
 
-// TODO Explain how the console application works
+## DataLoaders
+
+This will generate an extension method for `GraphQL.IDataLoaderContextAccessor` for each public method in the class that returns a `Task<IDictionary<,>>`.
+
+### Bottlecap.Net.GraphQL.Generation.Cli
+
+![Nuget](https://img.shields.io/nuget/v/bottlecap.net.graphql.generation.cli.svg)
+
+This is the CLI that utilises `Bottlecap.Net.GraphQL.Generation` by taking a given dll, and looking for all classes that implement a `Bottlecap.Net.GraphQL.Generation.Attributes` attribute. It will then generate all GraphQL types in the specified namespace at the specified output location.
+
+#### Installation
+
+You can install the application using [dotnet tool install](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-tool-install).
+
+e.g.
+```
+dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\makeawishlist\tool"
+```
+
+#### Using
+
+| Argument | Description |
+|----------|-------------|
+| -i       | The dll to load and find all `Bottlecap.Net.GraphQL.Generation.Attributes` to generate GraphQL types from |
+| -o       | The output path of the generated classes. This will generate a single class file. |
+| -n       | The namesoace the generated class will be in |
+
+An example of running the application would look like the following.
 
 ```
-dotnet Bottlecap.Net.GraphQL.Generation.Console.dll -n GraphQLExample.Schemas -o <<OUTPUT>> -i <<INPUT DLL>
+dotnet Bottlecap.Net.GraphQL.Generation.Cli.dll -o <<OUTPUT>> -i <<INPUT DLL> -n GraphQLExample.Schemas
 ```
 
 ### Bottlecap.Net.GraphQL.Generation
@@ -35,7 +62,7 @@ dotnet Bottlecap.Net.GraphQL.Generation.Console.dll -n GraphQLExample.Schemas -o
 
 This contains the main generation logic. If you're wanting to upgrade the generator, or generate types without using attributes, then this is the assembly you will want.
 
-### Example
+### GraphType Example
 
 Below is an example of a data record defined for graph type generation
 
@@ -71,5 +98,35 @@ public partial class UserGraphType : ObjectGraphType<GraphQLExample.Data.User>
 	}
 
 	partial void SetupFields();
+}
+```
+
+### DataLoader Example
+
+Below is an example of a method defined for data loader generation
+
+```
+[DataLoader]
+public class UserRepository : IUserRepository
+{
+    public Task<IDictionary<long, User>> GetUsersByIdsAsync(IEnumerable<long> ids)
+    {
+        // Logic goes here
+    }
+}
+```
+
+and here is the result...
+
+```
+public static class IUserRepositoryExtensions
+{
+	 public static Task<GraphQLExample.Data.User> GetUsersByIdsAsync(this IDataLoaderContextAccessor accessor, 
+      GraphQLExample.Data.IUserRepository repository,
+      Func<System.Int64> keySelector)
+    {
+        var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, GraphQLExample.Data.User>("GraphQLExample.Data.IUserRepository.GetUsersByIdsAsync", repository.GetUsersByIdsAsync);
+        return loader.LoadAsync(keySelector());
+    }
 }
 ```
