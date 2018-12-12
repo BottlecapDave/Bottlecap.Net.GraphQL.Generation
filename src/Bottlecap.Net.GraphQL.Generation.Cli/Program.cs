@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace Bottlecap.Net.GraphQL.Generation.Console
+namespace Bottlecap.Net.GraphQL.Generation.Cli
 {
     class Program
     {

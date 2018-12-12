@@ -1,7 +1,7 @@
 ﻿using CommandLine;
 using System.Collections.Generic;
 
-namespace Bottlecap.Net.GraphQL.Generation.Console
+namespace Bottlecap.Net.GraphQL.Generation.Cli
 {
     public class Options
     {
