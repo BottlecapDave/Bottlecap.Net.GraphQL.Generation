@@ -15,7 +15,7 @@ Therefore, I created this toolset to generate extendable GraphType objects based
 
 This provides attributes which are used to decorate classes that you wish to have graph types and dataloaders generated for. The aim was to support bespoke attributing at a minimum for most scenarios.
 
-## GraphType
+#### GraphType
 
 Any class that has this attribute will have a GraphQL type generated for it. Specify `IsInput` if the graph type is used for input.
 
@@ -23,7 +23,7 @@ This will generate a `GraphType` field for each public property with description
 
 If there are properties you don't want to expose, then there is a **GraphTypeProperty** attribute, which has an `IsIgnored` flag.
 
-## DataLoaders
+#### DataLoaders
 
 This will generate an extension method for `GraphQL.IDataLoaderContextAccessor` for each public method in the class that returns a `Task<IDictionary<,>>`.
 
