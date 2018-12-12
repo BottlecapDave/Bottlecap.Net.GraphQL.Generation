@@ -111,7 +111,7 @@ You can install the application using [dotnet tool install](https://docs.microso
 
 e.g.
 ```
-dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\makeawishlist\tool"
+dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\ProjectX\tool"
 ```
 
 #### Using
