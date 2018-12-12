@@ -111,19 +111,19 @@ You can install the application using [dotnet tool install](https://docs.microso
 
 e.g.
 ```
-dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\ProjectX\tool"
+dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha --tool-path "C:\Repos\Applications\ProjectX\tools"
 ```
 
 #### Using
 
 | Argument | Description |
 |----------|-------------|
-| -i       | The dll to load and find all `Bottlecap.Net.GraphQL.Generation.Attributes` to generate GraphQL types from |
+| -i       | The dll to load and find all `Bottlecap.Net.GraphQL.Generation.Attributes` to generate GraphQL types from. This can have muliple values (e.g. `-i path\to\first\dll path\to\second\dll`) |
 | -o       | The output path of the generated classes. This will generate a single class file. |
 | -n       | The namesoace the generated class will be in |
 
 An example of running the application would look like the following.
 
 ```
-dotnet Bottlecap.Net.GraphQL.Generation.Cli.dll -o <<OUTPUT>> -i <<INPUT DLL> -n GraphQLExample.Schemas
+bottlecap-graphql-gen -i <<INPUT DLL> -o <<OUTPUT>> -n GraphQLExample.Schemas
 ```
