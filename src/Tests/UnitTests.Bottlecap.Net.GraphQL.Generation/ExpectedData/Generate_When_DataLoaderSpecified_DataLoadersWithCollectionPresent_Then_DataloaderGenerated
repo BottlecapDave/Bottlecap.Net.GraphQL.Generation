@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public static class IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGeneratedExtensions
+{
+	 public static Task<System.Collections.Generic.IEnumerable<System.String>> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
+                                             UnitTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated repository,
+                                             Func<System.Int64> keySelector)
+{
+    var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.Collections.Generic.IEnumerable<System.String>>("UnitTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
+    return loader.LoadAsync(keySelector());
+}
+
+}
+
+}

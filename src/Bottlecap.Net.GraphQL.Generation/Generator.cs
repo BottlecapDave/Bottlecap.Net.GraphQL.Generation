@@ -90,10 +90,14 @@ namespace Bottlecap.Net.GraphQL.Generation
 
             foreach (var item in _dataLoaderTypesToGenerate)
             {
-                shell.Classes.Add(new DataLoaderExtensions(item));
+                var dataLoaderClass = new DataLoaderExtensions(item);
+                if (dataLoaderClass.DataLoaders.Any())
+                {
+                    shell.Classes.Add(dataLoaderClass);
+                }
             }
 
-            return shell.ToString();
+            return shell.Classes.Any() ? shell.ToString() : null;
         }
 
         private IEnumerable<Type> GetLoadableTypes(Assembly assembly)
