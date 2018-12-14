@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
   </ItemGroup>

@@ -12,7 +12,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                return _property.Name;
+                return _definition.Name;
             }
         }
 

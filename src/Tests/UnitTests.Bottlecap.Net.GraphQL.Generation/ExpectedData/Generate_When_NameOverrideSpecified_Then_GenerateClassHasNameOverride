@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride>
+{
+	public GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType()
+	{
+		Name = "GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride";
+		Field(x => x.NewName, nullable: false).Description("");
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

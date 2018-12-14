@@ -64,7 +64,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                 var propertyDefiniton = _typeDefinition.Properties?.FirstOrDefault(x => String.Equals(x.Name, property.Name, StringComparison.OrdinalIgnoreCase));
                 if (propertyDefiniton == null)
                 {
-                    propertyDefiniton = new PropertyDefinition(property.Name);
+                    propertyDefiniton = new PropertyDefinition(attribute?.Name ?? property.Name);
                 }
 
                 if (propertyDefiniton.IsIgnored == true)
