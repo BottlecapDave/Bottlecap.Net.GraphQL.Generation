@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty>
+{
+	public GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType()
+	{
+		Name = "GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty";
+		Field(x => x.Name, nullable: true).Description("");
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

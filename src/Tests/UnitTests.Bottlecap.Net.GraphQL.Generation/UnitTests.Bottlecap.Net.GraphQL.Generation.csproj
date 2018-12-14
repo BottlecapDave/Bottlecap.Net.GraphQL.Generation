@@ -7,6 +7,8 @@
 
   <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
   </ItemGroup>
 
   <ItemGroup>
