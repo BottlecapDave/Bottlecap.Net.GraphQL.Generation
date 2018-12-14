@@ -7,5 +7,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Attributes
         public string Name { get; set; }
 
         public bool IsIgnored { get; set; }
+        
+        public bool IsNullable { get; set; }
     }
 }

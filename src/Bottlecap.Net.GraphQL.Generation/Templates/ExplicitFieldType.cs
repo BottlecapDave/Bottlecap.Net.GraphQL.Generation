@@ -11,21 +11,21 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                if (_property.PropertyType.IsArray)
+                if (_definition.Property.PropertyType.IsArray)
                 {
-                    return $"ListGraphType<{TryExtractGeneric(_property.PropertyType.GetElementType().GetGraphTypeFromType(IsNullable)).Name}>";
+                    return $"ListGraphType<{TryExtractGeneric(_definition.Property.PropertyType.GetElementType().GetGraphTypeFromType(IsNullable)).Name}>";
                 }
-                else if (typeof(IEnumerable).IsAssignableFrom(_property.PropertyType))
+                else if (typeof(IEnumerable).IsAssignableFrom(_definition.Property.PropertyType))
                 {
-                    return $"ListGraphType<{TryExtractGeneric(_property.PropertyType).Name}GraphType>";
+                    return $"ListGraphType<{TryExtractGeneric(_definition.Property.PropertyType).Name}GraphType>";
                 }
 
-                return $"{_property.PropertyType.Name}GraphType";
+                return $"{_definition.Property.PropertyType.Name}GraphType";
             }
         }
 
-        public ExplicitFieldType(PropertyInfo property, PropertyDefinition definition)
-            : base(property, definition)
+        public ExplicitFieldType(PropertyDefinition definition)
+            : base(definition)
         {
         }
 

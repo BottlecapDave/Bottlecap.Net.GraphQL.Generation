@@ -5,14 +5,13 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
     public class BaseFieldType : BaseTemplate
     {
-        protected readonly PropertyInfo _property;
         protected readonly PropertyDefinition _definition;
 
         public string Name
         {
             get
             {
-                return _definition.Name;
+                return _definition.Overrides.Name ?? _definition.Property.Name;
             }
         }
 
@@ -20,7 +19,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                var attribute = _property.GetCustomAttribute<System.ComponentModel.DescriptionAttribute>();
+                var attribute = _definition.Property.GetCustomAttribute<System.ComponentModel.DescriptionAttribute>();
                 if (attribute != null)
                 {
                     return attribute.Description;
@@ -34,7 +33,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                if (_definition.IsNullable || Nullable.GetUnderlyingType(_property.PropertyType) != null)
+                if (_definition.Overrides.IsNullable || Nullable.GetUnderlyingType(_definition.Property.PropertyType) != null)
                 {
                     return true;
                 }
@@ -51,9 +50,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             }
         }
 
-        public BaseFieldType(PropertyInfo property, PropertyDefinition definition)
+        public BaseFieldType(PropertyDefinition definition)
         {
-            _property = property;
             _definition = definition;
         }
     }

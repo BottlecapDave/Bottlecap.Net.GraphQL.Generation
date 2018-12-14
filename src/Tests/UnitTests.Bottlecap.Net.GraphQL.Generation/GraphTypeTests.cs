@@ -8,7 +8,7 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
     public class GraphTypeTests : BaseTests
     {
         [Fact]
-        public async void Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride()
+        public void Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride()
         {
             // Arrange
             var generator = new Generator();

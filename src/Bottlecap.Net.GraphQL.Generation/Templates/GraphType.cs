@@ -52,34 +52,21 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             _typeDefinition = type;
             Fields = new List<BaseFieldType>();
 
-            var properties = _typeDefinition.Type.GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
-            foreach (var property in properties)
+            foreach (var propertyDefinition in _typeDefinition.PropertyDefinitions)
             {
-                var attribute = property.GetCustomAttribute<GraphTypePropertyAttribute>();
-                if (attribute != null && attribute.IsIgnored)
+                if (propertyDefinition.Overrides.IsIgnored)
                 {
                     continue;
                 }
 
-                var propertyDefiniton = _typeDefinition.Properties?.FirstOrDefault(x => String.Equals(x.Name, property.Name, StringComparison.OrdinalIgnoreCase));
-                if (propertyDefiniton == null)
+                if (((propertyDefinition.Property.PropertyType.IsValueType == false) && propertyDefinition.Property.PropertyType != typeof(string)) ||
+                    propertyDefinition.Property.PropertyType.IsEnum)
                 {
-                    propertyDefiniton = new PropertyDefinition(attribute?.Name ?? property.Name);
-                }
-
-                if (propertyDefiniton.IsIgnored == true)
-                {
-                    continue;
-                }
-
-                if (((property.PropertyType.IsValueType == false) && property.PropertyType != typeof(string)) ||
-                    property.PropertyType.IsEnum)
-                {
-                    Fields.Add(new ExplicitFieldType(property, propertyDefiniton));
+                    Fields.Add(new ExplicitFieldType(propertyDefinition));
                 }
                 else
                 {
-                    Fields.Add(new BaseFieldType(property, propertyDefiniton));
+                    Fields.Add(new BaseFieldType(propertyDefinition));
                 }
             }
         }
