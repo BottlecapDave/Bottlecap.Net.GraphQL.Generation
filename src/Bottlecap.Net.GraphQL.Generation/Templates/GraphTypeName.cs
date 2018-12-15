@@ -41,15 +41,21 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
             }
 
-            var graphType = type.GetGraphTypeFromType(isNullable == true);
-            if (typeof(GraphQLTypes.NonNullGraphType).IsAssignableFrom(graphType) && graphType.IsGenericType)
+            try
             {
-                return graphType.GenericTypeArguments[0].Name;
+                var graphType = type.GetGraphTypeFromType(isNullable == true);
+                if (typeof(GraphQLTypes.NonNullGraphType).IsAssignableFrom(graphType) && graphType.IsGenericType)
+                {
+                    return graphType.GenericTypeArguments[0].Name;
+                }
+
+                return graphType.Name;
             }
-
-            var graphTypeName = graphType.Name;
-
-            return graphTypeName;
+            catch (ArgumentOutOfRangeException)
+            {
+                // This is thrown if the provided type can't be converted into a native graph type
+                return $"{type.Name}GraphType";
+            }
         }
     }
 }

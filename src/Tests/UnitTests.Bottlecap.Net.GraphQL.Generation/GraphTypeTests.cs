@@ -53,9 +53,19 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly));
         }
 
+        [Fact]
+        public void Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly));
+        }
+
         #region Classes
 
-        [GraphType]
         public class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride
         {
             [GraphTypeProperty(Name="NewName")]
@@ -77,6 +87,11 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         public class GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly
         {
             public IEnumerable<long> Ids { get; set; }
+        }
+
+        public class GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly
+        {
+            public GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly ClassProperty { get; set; }
         }
 
         #endregion
