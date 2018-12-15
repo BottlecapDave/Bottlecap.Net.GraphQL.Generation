@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly>
+{
+	public GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectlyGraphType()
+	{
+		Name = "GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly";
+		Field<ListGraphType<IntGraphType>, System.Collections.Generic.IEnumerable<System.Int64>>().Name("Ids").Description("").Resolve(context => context.Source.Ids);
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

@@ -1,6 +1,7 @@
 ﻿using Bottlecap.Net.GraphQL.Generation;
 using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -41,6 +42,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty));
         }
 
+        [Fact]
+        public void Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly));
+        }
+
         #region Classes
 
         [GraphType]
@@ -60,6 +72,11 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         {
             [GraphTypeProperty(IsNullable = NullableBoolean.False)]
             public string Name { get; set; }
+        }
+
+        public class GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly
+        {
+            public IEnumerable<long> Ids { get; set; }
         }
 
         #endregion

@@ -7,20 +7,19 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 {
     public class ExplicitFieldType : BaseFieldType
     {
+        public string GraphTypeName
+        {
+            get
+            {
+                return new GraphTypeName(_definition.Property.PropertyType, IsNullable).ToString();
+            }
+        }
+
         public string TypeName
         {
             get
             {
-                if (_definition.Property.PropertyType.IsArray)
-                {
-                    return $"ListGraphType<{TryExtractGeneric(_definition.Property.PropertyType.GetElementType().GetGraphTypeFromType(IsNullable)).Name}>";
-                }
-                else if (typeof(IEnumerable).IsAssignableFrom(_definition.Property.PropertyType))
-                {
-                    return $"ListGraphType<{TryExtractGeneric(_definition.Property.PropertyType).Name}GraphType>";
-                }
-
-                return $"{_definition.Property.PropertyType.Name}GraphType";
+                return new FullTypeName(_definition.Property.PropertyType).ToString();
             }
         }
 
