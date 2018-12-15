@@ -9,10 +9,12 @@
     <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty" />
     <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly" />
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsGeneric_Then_PropertyIsDefinedCorrectly" />
   </ItemGroup>
 
   <ItemGroup>

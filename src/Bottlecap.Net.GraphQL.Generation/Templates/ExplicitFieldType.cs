@@ -11,7 +11,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                return new GraphTypeName(_definition.Property.PropertyType, IsNullable).ToString();
+                return _definition.Property.PropertyType.GetCSharpGraphType(IsNullable);
             }
         }
 
@@ -19,7 +19,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                return new FullTypeName(_definition.Property.PropertyType).ToString();
+                return _definition.Property.PropertyType.GetCSharpTypeName();
             }
         }
 

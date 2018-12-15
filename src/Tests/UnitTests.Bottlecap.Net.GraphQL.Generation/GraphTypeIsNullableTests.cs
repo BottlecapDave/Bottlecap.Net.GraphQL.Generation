@@ -1,25 +1,12 @@
 ﻿using Bottlecap.Net.GraphQL.Generation;
 using Bottlecap.Net.GraphQL.Generation.Attributes;
-using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 {
-    public class GraphTypeTests : BaseTests
+    public class GraphTypeIsNullableTests : BaseTests
     {
-        [Fact]
-        public void Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride()
-        {
-            // Arrange
-            var generator = new Generator();
-            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride)));
-
-            // Assert
-            ActAndAssertGeneratedResult(generator, nameof(Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride));
-        }
-
         [Fact]
         public void Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty()
         {
@@ -43,34 +30,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         }
 
         [Fact]
-        public void Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly()
+        public void Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty()
         {
             // Arrange
             var generator = new Generator();
-            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly)));
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenIsNullableNotSpecifiedPropertyIsNullableThenGenerateClassHasNullableProperty)));
 
             // Assert
-            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly));
-        }
-
-        [Fact]
-        public void Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly()
-        {
-            // Arrange
-            var generator = new Generator();
-            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly)));
-
-            // Assert
-            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly));
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty));
         }
 
         #region Classes
-
-        public class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride
-        {
-            [GraphTypeProperty(Name="NewName")]
-            public string Name { get; set; }
-        }
 
         public class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty
         {
@@ -84,14 +54,9 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             public string Name { get; set; }
         }
 
-        public class GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly
+        public class GenerateWhenIsNullableNotSpecifiedPropertyIsNullableThenGenerateClassHasNullableProperty
         {
-            public IEnumerable<long> Ids { get; set; }
-        }
-
-        public class GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly
-        {
-            public GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly ClassProperty { get; set; }
+            public int? NullableInt { get; set; }
         }
 
         #endregion
