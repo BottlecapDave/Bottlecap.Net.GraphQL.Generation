@@ -33,12 +33,15 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
-                if (_definition.Overrides.IsNullable || Nullable.GetUnderlyingType(_definition.Property.PropertyType) != null)
+                switch (_definition.Overrides.IsNullable)
                 {
-                    return true;
+                    case Attributes.NullableBoolean.True:
+                        return true;
+                    case Attributes.NullableBoolean.False:
+                        return false;
+                    default:
+                        return Nullable.GetUnderlyingType(_definition.Property.PropertyType) != null;
                 }
-
-                return false;
             }
         }
 

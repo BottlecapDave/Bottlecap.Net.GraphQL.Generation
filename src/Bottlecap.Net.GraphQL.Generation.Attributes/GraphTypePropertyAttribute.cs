@@ -8,6 +8,6 @@ namespace Bottlecap.Net.GraphQL.Generation.Attributes
 
         public bool IsIgnored { get; set; }
         
-        public bool IsNullable { get; set; }
+        public NullableBoolean IsNullable { get; set; }
     }
 }

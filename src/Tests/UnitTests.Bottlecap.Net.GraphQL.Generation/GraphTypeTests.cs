@@ -52,13 +52,13 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
         public class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty
         {
-            [GraphTypeProperty(IsNullable=true)]
+            [GraphTypeProperty(IsNullable = NullableBoolean.True)]
             public string Name { get; set; }
         }
 
         public class GenerateWhenIsNullableSpecifiedIsNotNullableThenGenerateClassHasNonNullableProperty
         {
-            [GraphTypeProperty(IsNullable = false)]
+            [GraphTypeProperty(IsNullable = NullableBoolean.False)]
             public string Name { get; set; }
         }
 
