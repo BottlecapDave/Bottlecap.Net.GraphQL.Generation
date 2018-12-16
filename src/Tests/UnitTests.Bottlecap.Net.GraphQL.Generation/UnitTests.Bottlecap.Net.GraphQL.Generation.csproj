@@ -28,7 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generation\Bottlecap.Net.GraphQL.Generation.csproj" />
-    <ProjectReference Include="..\..\UnitTests.Bottlecap.Net.GraphQL.Generation.Support\UnitTests.Bottlecap.Net.GraphQL.Generation.Support.csproj" />
+    <ProjectReference Include="..\UnitTests.Bottlecap.Net.GraphQL.Generation.Support\UnitTests.Bottlecap.Net.GraphQL.Generation.Support.csproj" />
   </ItemGroup>
 
 </Project>
