@@ -1,0 +1,21 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly>
+{
+	public GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectlyGraphType()
+	{
+		Name = "GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly";
+		Field(x => x.Id, nullable: false).Description("");
+		Field(x => x.Name, nullable: false).Description("");
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
@@ -24,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generation\Bottlecap.Net.GraphQL.Generation.csproj" />
+    <ProjectReference Include="..\..\UnitTests.Bottlecap.Net.GraphQL.Generation.Support\UnitTests.Bottlecap.Net.GraphQL.Generation.Support.csproj" />
   </ItemGroup>
 
 </Project>

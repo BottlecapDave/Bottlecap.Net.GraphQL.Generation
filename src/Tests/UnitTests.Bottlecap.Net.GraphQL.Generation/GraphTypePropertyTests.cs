@@ -2,6 +2,7 @@
 using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System;
 using System.Collections.Generic;
+using UnitTests.Bottlecap.Net.GraphQL.Generation.Support;
 using Xunit;
 
 namespace UnitTests.Bottlecap.Net.GraphQL.Generation
@@ -39,6 +40,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
             // Assert
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyIsGeneric_Then_PropertyIsDefinedCorrectly));
+        }
+
+        [Fact]
+        public void Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly));
         }
 
         #region Classes
