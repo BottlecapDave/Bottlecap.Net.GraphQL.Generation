@@ -122,7 +122,7 @@ namespace Bottlecap.Net.GraphQL.Generation
 
             try
             {
-                return assembly.GetTypes();
+                return assembly.GetExportedTypes();
             }
             catch (ReflectionTypeLoadException e)
             {

@@ -10,6 +10,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
     {
         static void Main(string[] args)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += CheckLoaded;
+
             Parser.Default.ParseArguments<Options>(args)
                    .WithParsed<Options>(o => Generate(o))
                    .WithNotParsed<Options>(errors => {
@@ -38,6 +40,18 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
             }
 
             generator.Generate(options.Output, options.Namespace);
+        }
+        
+        private static Assembly CheckLoaded(object sender, ResolveEventArgs args)
+        {
+            foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                if (a.FullName.Equals(args.Name))
+                {
+                    return a;
+                }
+            }
+            return null;
         }
     }
 }
