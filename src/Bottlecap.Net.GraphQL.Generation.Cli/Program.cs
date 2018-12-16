@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
@@ -32,7 +33,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
             // Register all our types from our loaded assemblies
             foreach (var assembly in assemblies)
             {
-                System.Console.WriteLine($"Loading {assembly.GetName()}...");
+                System.Console.WriteLine($"Loading {assembly.GetName().Name}...");
                 generator.RegisterTypes(assembly);
             }
 

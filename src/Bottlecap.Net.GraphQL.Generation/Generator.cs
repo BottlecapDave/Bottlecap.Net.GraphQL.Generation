@@ -126,6 +126,7 @@ namespace Bottlecap.Net.GraphQL.Generation
             }
             catch (ReflectionTypeLoadException e)
             {
+                _logger?.WriteError(e.Message);
                 return e.Types.Where(t => t != null);
             }
         }
