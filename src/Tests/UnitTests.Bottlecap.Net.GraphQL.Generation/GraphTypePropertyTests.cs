@@ -55,19 +55,28 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
         #region Classes
 
+        [GraphType]
         public class GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly
         {
             public IEnumerable<long> Ids { get; set; }
         }
 
+        [GraphType]
         public class GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly
         {
             public GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly ClassProperty { get; set; }
         }
 
+        [GraphType]
         public class GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly
         {
             public Tuple<string, string> Generic { get; set; }
+        }
+
+        [GraphType]
+        public class GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly : BaseClass
+        {
+            public long Id { get; set; }
         }
 
         #endregion

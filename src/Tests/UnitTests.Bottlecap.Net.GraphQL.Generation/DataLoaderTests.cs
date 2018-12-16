@@ -1,4 +1,5 @@
 ﻿using Bottlecap.Net.GraphQL.Generation;
+using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Xunit;
@@ -44,17 +45,18 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated));
         }
 
-        private interface INoDataLoaderNoDictionary
+        public interface INoDataLoaderNoDictionary
         {
             Task<string> GetByIdAsync(long id);
         }
 
-        private interface INoDataLoaderNoTask
+        public interface INoDataLoaderNoTask
         {
             IDictionary<long, string> GetByIdsAsync(IEnumerable<long> ids);
         }
 
-        private interface IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated
+        [DataLoaders]
+        public interface IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated
         {
             Task<IDictionary<long, string>> GetByIdsAsync(IEnumerable<long> ids);
         }

@@ -1,4 +1,5 @@
 ﻿using CommandLine;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 
@@ -17,13 +18,21 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
 
         private static void Generate(Options options)
         {
-            var generator = new Generator();
+            var generator = new Generator(options.IsVerbose ? new Logger() : null);
 
+            // Load all of our assemblies into the system first, in case some of the assemblies have some
+            // dependencies on each other.
+            var assemblies = new List<Assembly>();
             foreach (var input in options.Inputs)
             {
                 var path = Path.Combine(Directory.GetCurrentDirectory(), input);
-                System.Console.WriteLine($"Loading {path}...");
-                var assembly = Assembly.LoadFile(path);
+                assemblies.Add(Assembly.LoadFile(path));
+            }
+
+            // Register all our types from our loaded assemblies
+            foreach (var assembly in assemblies)
+            {
+                System.Console.WriteLine($"Loading {assembly.GetName()}...");
                 generator.RegisterTypes(assembly);
             }
 

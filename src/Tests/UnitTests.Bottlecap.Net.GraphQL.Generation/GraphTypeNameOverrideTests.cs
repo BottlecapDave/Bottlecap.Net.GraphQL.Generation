@@ -20,6 +20,7 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
         #region Classes
 
+        [GraphType]
         public class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride
         {
             [GraphTypeProperty(Name="NewName")]

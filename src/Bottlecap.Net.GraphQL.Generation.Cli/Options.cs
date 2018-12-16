@@ -13,5 +13,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
 
         [Option('i', "input", Required = true, HelpText = "The input paths of the dlls that contain the classes to generated GraphQL objects for")]
         public IEnumerable<string> Inputs { get; set; }
+
+        [Option('v', "verbose", Required = false, HelpText = "Determines if generation output should be verbose")]
+        public bool IsVerbose { get; set; }
     }
 }

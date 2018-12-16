@@ -14,6 +14,13 @@ namespace Bottlecap.Net.GraphQL.Generation
         private readonly List<TypeDefinition> _graphTypesToGenerate = new List<TypeDefinition>();
         private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
+        private readonly ILogger _logger;
+
+        public Generator(ILogger logger = null)
+        {
+            _logger = logger;
+        }
+
         public void RegisterTypes(Assembly assembly)
         {
             var types = GetLoadableTypes(assembly);
@@ -66,6 +73,8 @@ namespace Bottlecap.Net.GraphQL.Generation
 
         public string Generate(string targetNamespace)
         {
+            _logger?.WriteInfo($"Generating classes in namespace '{targetNamespace}");
+
             var shell = new Shell()
             {
                 Namespace = targetNamespace
@@ -73,6 +82,8 @@ namespace Bottlecap.Net.GraphQL.Generation
 
             foreach (var item in _graphTypesToGenerate)
             {
+                _logger?.WriteInfo($"Generating GraphType for '{item.Type.Name}");
+
                 if (item.Type.IsEnum)
                 {
                     shell.Classes.Add(new EnumerationGraphType(item));
@@ -85,11 +96,13 @@ namespace Bottlecap.Net.GraphQL.Generation
 
             foreach (var item in _inputGraphTypesToGenerate)
             {
+                _logger?.WriteInfo($"Generating InputGraphType for '{item.Type.Name}");
                 shell.Classes.Add(new GraphType(item, true));
             }
 
             foreach (var item in _dataLoaderTypesToGenerate)
             {
+                _logger?.WriteInfo($"Generating DataLoaders for '{item.Type.Name}");
                 var dataLoaderClass = new DataLoaderExtensions(item);
                 if (dataLoaderClass.DataLoaders.Any())
                 {
