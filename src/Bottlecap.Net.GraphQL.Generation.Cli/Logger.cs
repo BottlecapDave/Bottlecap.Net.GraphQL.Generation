@@ -6,7 +6,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
     {
         public void WriteError(string message)
         {
-            Console.WriteLine($"Error: {message}");
+            Console.Error.WriteLine(message);
         }
 
         public void WriteInfo(string message)
