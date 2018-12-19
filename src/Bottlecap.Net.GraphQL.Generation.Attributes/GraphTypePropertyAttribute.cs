@@ -2,6 +2,7 @@
 
 namespace Bottlecap.Net.GraphQL.Generation.Attributes
 {
+    [AttributeUsage(AttributeTargets.Property)]
     public class GraphTypePropertyAttribute : Attribute
     {
         public string Name { get; set; }
