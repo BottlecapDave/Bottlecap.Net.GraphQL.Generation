@@ -6,6 +6,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_InputGraphTypeReferencesInputGraphType_Then_InputGraphTypeIsGenerated" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
   </ItemGroup>
 

@@ -10,7 +10,6 @@ namespace Bottlecap.Net.GraphQL.Generation
 {
     public class Generator
     {
-        private readonly List<TypeDefinition> _inputGraphTypesToGenerate = new List<TypeDefinition>();
         private readonly List<TypeDefinition> _graphTypesToGenerate = new List<TypeDefinition>();
         private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
@@ -29,14 +28,7 @@ namespace Bottlecap.Net.GraphQL.Generation
                 var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
                 if (graphTypeAttribute != null)
                 {
-                    if (graphTypeAttribute.IsInput && type.IsEnum == false)
-                    {
-                        _inputGraphTypesToGenerate.Add(new TypeDefinition(type, graphTypeAttribute));
-                    }
-                    else
-                    {
-                        _graphTypesToGenerate.Add(new TypeDefinition(type, graphTypeAttribute));
-                    }
+                    _graphTypesToGenerate.Add(new TypeDefinition(type, graphTypeAttribute));
                 }
                 else
                 {
@@ -47,11 +39,6 @@ namespace Bottlecap.Net.GraphQL.Generation
                     }
                 }
             }
-        }
-
-        public void RegisterInputGraphTypes(params TypeDefinition[] typesToGenerate)
-        {
-            _inputGraphTypesToGenerate.AddRange(typesToGenerate);
         }
 
         public void RegisterGraphTypes(params TypeDefinition[] typesToGenerate)
@@ -92,12 +79,6 @@ namespace Bottlecap.Net.GraphQL.Generation
                 {
                     shell.Classes.Add(new GraphType(item));
                 }
-            }
-
-            foreach (var item in _inputGraphTypesToGenerate)
-            {
-                _logger?.WriteInfo($"Generating InputGraphType for '{item.Type.Name}");
-                shell.Classes.Add(new GraphType(item, true));
             }
 
             foreach (var item in _dataLoaderTypesToGenerate)

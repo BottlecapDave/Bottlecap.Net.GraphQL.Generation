@@ -1,7 +1,5 @@
 ﻿using GraphQL;
 using System;
-using System.Collections;
-using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation.Templates
 {

@@ -10,7 +10,14 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
     {
         private readonly TypeDefinition _typeDefinition;
 
-        public bool IsInput { get; set; }
+        public bool IsInput
+        {
+            get
+            {
+                return _typeDefinition.IsInput;
+            }
+        }
+
         public bool IsOutput { get { return _typeDefinition.IsInput == false; } }
 
         public string ClassName
@@ -46,9 +53,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public List<BaseFieldType> Fields { get; private set; }
 
-        public GraphType(TypeDefinition type, bool isInput = false)
+        public GraphType(TypeDefinition type)
         {
-            IsInput = isInput;
             _typeDefinition = type;
             Fields = new List<BaseFieldType>();
 

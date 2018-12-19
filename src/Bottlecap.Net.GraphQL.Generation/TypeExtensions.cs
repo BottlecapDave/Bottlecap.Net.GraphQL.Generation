@@ -1,6 +1,8 @@
-﻿using GraphQL;
+﻿using Bottlecap.Net.GraphQL.Generation.Attributes;
+using GraphQL;
 using System;
 using System.Collections;
+using System.Reflection;
 using GraphQLTypes = GraphQL.Types;
 
 namespace Bottlecap.Net.GraphQL.Generation
@@ -84,7 +86,9 @@ namespace Bottlecap.Net.GraphQL.Generation
             catch (ArgumentOutOfRangeException)
             {
                 // This is thrown if the provided type can't be converted into a native graph type
-                return $"{type.Name}GraphType";
+                var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
+
+                return graphTypeAttribute?.IsInput == true ? $"{type.Name}InputGraphType" : $"{type.Name}GraphType";
             }
         }
     }
