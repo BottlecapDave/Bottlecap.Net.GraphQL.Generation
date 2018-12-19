@@ -18,6 +18,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride));
         }
 
+        [Fact]
+        public void Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverride)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride));
+        }
+
         #region Classes
 
         [GraphType]
@@ -25,6 +36,13 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         {
             [GraphTypeProperty(Name="NewName")]
             public string Name { get; set; }
+        }
+
+        [GraphType]
+        public class GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverride
+        {
+            [GraphTypeProperty(Name = "NewName")]
+            public Assert Name { get; set; }
         }
 
         #endregion

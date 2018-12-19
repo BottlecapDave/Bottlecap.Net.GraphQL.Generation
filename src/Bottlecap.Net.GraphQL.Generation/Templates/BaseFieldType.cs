@@ -16,6 +16,14 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             }
         }
 
+        public string PropertyName
+        {
+            get
+            {
+                return _definition.Property.Name;
+            }
+        }
+
         public string Description
         {
             get

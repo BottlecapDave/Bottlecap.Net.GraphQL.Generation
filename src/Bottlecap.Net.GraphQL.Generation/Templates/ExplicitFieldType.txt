@@ -1,1 +1,1 @@
-﻿Field<{{{GraphTypeName}}}, {{{TypeName}}}>().Name("{{Name}}").Description("{{Description}}").Resolve(context => context.Source.{{Name}});
+﻿Field<{{{GraphTypeName}}}, {{{TypeName}}}>().Name("{{Name}}").Description("{{Description}}").Resolve(context => context.Source.{{PropertyName}});

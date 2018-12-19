@@ -10,8 +10,8 @@ namespace Tests
 	public GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectlyGraphType()
 	{
 		Name = "GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly";
-		Field(x => x.Id, nullable: false).Description("");
-		Field(x => x.Name, nullable: false).Description("");
+		Field(x => x.Id, nullable: false).Name("Id").Description("");
+		Field(x => x.Name, nullable: false).Name("Name").Description("");
 		SetupFields();
 	}
 

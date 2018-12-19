@@ -10,7 +10,7 @@ namespace Tests
 	public GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType()
 	{
 		Name = "GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride";
-		Field(x => x.NewName, nullable: false).Description("");
+		Field(x => x.Name, nullable: false).Name("NewName").Description("");
 		SetupFields();
 	}
 

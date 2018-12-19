@@ -10,7 +10,7 @@ namespace Tests
 	public GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGeneratedGraphType()
 	{
 		Name = "GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated";
-		Field(x => x.Test, nullable: false).Description("The test of generate when property description not specified property description generation is true then property description is generated");
+		Field(x => x.Test, nullable: false).Name("Test").Description("The test of generate when property description not specified property description generation is true then property description is generated");
 		SetupFields();
 	}
 

@@ -10,7 +10,7 @@ namespace Tests
 	public GenerateWhenIsNullableNotSpecifiedPropertyIsNullableThenGenerateClassHasNullablePropertyGraphType()
 	{
 		Name = "GenerateWhenIsNullableNotSpecifiedPropertyIsNullableThenGenerateClassHasNullableProperty";
-		Field(x => x.NullableInt, nullable: true).Description("");
+		Field(x => x.NullableInt, nullable: true).Name("NullableInt").Description("");
 		SetupFields();
 	}
 

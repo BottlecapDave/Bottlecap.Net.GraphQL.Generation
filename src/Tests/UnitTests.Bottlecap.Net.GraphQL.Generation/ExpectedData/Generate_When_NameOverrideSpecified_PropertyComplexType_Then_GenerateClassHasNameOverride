@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverrideGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverride>
+{
+	public GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverrideGraphType()
+	{
+		Name = "GenerateWhenNameOverrideSpecifiedPropertyComplexTypeThenGenerateClassHasNameOverride";
+		Field<AssertGraphType, Xunit.Assert>().Name("NewName").Description("").Resolve(context => context.Source.Name);
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

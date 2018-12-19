@@ -1,1 +1,1 @@
-﻿Field(x => x.{{Name}}, nullable: {{IsNullableString}}).Description("{{Description}}");
+﻿Field(x => x.{{PropertyName}}, nullable: {{IsNullableString}}).Name("{{Name}}").Description("{{Description}}");

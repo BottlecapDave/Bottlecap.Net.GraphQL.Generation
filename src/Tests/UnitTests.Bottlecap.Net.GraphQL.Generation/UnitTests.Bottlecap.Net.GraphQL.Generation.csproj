@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly" />
   </ItemGroup>
 
