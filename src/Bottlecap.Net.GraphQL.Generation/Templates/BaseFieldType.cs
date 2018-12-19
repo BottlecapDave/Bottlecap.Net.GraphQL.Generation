@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Humanizer;
+using System;
 using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation.Templates
@@ -25,7 +26,9 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                     return attribute.Description;
                 }
 
-                return "";
+                return _definition.Parent.IsDescriptionGenerated 
+                       ? $"The {_definition.Property.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()} of {_definition.Property.ReflectedType.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()}"
+                       : "";
             }
         }
 

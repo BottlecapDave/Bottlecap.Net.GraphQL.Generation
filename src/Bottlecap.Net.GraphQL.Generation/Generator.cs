@@ -31,11 +31,11 @@ namespace Bottlecap.Net.GraphQL.Generation
                 {
                     if (graphTypeAttribute.IsInput && type.IsEnum == false)
                     {
-                        _inputGraphTypesToGenerate.Add(new TypeDefinition(type) { IsInput = true });
+                        _inputGraphTypesToGenerate.Add(new TypeDefinition(type, graphTypeAttribute));
                     }
                     else
                     {
-                        _graphTypesToGenerate.Add(new TypeDefinition(type));
+                        _graphTypesToGenerate.Add(new TypeDefinition(type, graphTypeAttribute));
                     }
                 }
                 else

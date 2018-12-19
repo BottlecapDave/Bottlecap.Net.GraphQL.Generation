@@ -53,6 +53,20 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly));
         }
 
+        [Fact]
+        public void Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated))
+            {
+                IsDescriptionGenerated = true
+            });
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated));
+        }
+
         #region Classes
 
         [GraphType]
@@ -77,6 +91,12 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         public class GenerateWhenPropertiesAreInheritedThenPropertyIsDefinedCorrectly : BaseClass
         {
             public long Id { get; set; }
+        }
+
+        [GraphType]
+        public class GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated
+        {
+            public string Test { get; set; }
         }
 
         #endregion

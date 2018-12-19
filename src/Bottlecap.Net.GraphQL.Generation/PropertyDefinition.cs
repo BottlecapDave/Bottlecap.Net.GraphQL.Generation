@@ -5,12 +5,16 @@ namespace Bottlecap.Net.GraphQL.Generation
 {
     public class PropertyDefinition
     {
-        public GraphTypePropertyAttribute Overrides { get; set; }
+        public TypeDefinition Parent { get; private set; }
 
-        public PropertyInfo Property { get; set; }
+        public GraphTypePropertyAttribute Overrides { get; private set; }
 
-        public PropertyDefinition(PropertyInfo property)
+        public PropertyInfo Property { get; private set; }
+
+        public PropertyDefinition(TypeDefinition parent, PropertyInfo property)
         {
+            Parent = parent;
+
             Property = property;
             Overrides = property.GetCustomAttribute<GraphTypePropertyAttribute>() ?? new GraphTypePropertyAttribute();
         }

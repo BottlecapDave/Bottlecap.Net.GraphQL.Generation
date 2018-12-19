@@ -26,6 +26,7 @@
   <ItemGroup>
     <PackageReference Include="GraphQL" Version="2.3.0" />
     <PackageReference Include="Handlebars.Net" Version="1.9.5" />
+    <PackageReference Include="Humanizer.Core.uk" Version="2.5.16" />
   </ItemGroup>
 
   <ItemGroup>

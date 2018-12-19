@@ -14,6 +14,7 @@
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
     <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly" />
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
