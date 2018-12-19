@@ -52,7 +52,7 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
         public interface INoDataLoaderNoTask
         {
-            IDictionary<long, string> GetByIdsAsync(IEnumerable<long> ids);
+            IDictionary<long, string> GetByIds(IEnumerable<long> ids);
         }
 
         [DataLoaders]
@@ -63,7 +63,18 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 
         private interface IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated
         {
-            Task<IDictionary<long, IEnumerable<string>>> GetByIdsAsync(IEnumerable<long> ids);
+            Task<IDictionary<long, IEnumerable<Foo>>> GetByIdsAsync(IEnumerable<long> ids);
+
+            IDictionary<long, string> GetByIds(IEnumerable<long> ids);
+
+            Task<string> GetByIdAsync(long id);
+
+            Task DoSomethingAsync();
+        }
+
+        private class Foo
+        {
+
         }
     }
 }

@@ -21,7 +21,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             var methods = _typeDefinition.Type.GetMethods();
             foreach (var method in methods)
             {
-                if (taskType.IsAssignableFrom(method.ReturnType))
+                if (taskType.IsAssignableFrom(method.ReturnType) &&
+                    method.ReturnType.IsGenericType)
                 {
                     var innerType = method.ReturnType.GenericTypeArguments[0];
                     if (innerType.IsGenericType && innerType.GetGenericTypeDefinition() == dictionaryType)
