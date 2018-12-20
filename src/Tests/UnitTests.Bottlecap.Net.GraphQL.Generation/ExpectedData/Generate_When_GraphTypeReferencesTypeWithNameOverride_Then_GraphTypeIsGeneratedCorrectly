@@ -10,7 +10,7 @@ namespace Tests
 	public TestGraphType()
 	{
 		Name = "Test";
-		Field<NewNameGraphType, UnitTests.Bottlecap.Net.GraphQL.Generation.GraphTypeWithNameOverride>().Name("Test").Description("").Resolve(context => context.Source.Test);
+		Field<NewNameGraphType, UnitTests.Bottlecap.Net.GraphQL.Generation.GraphTypeWithNameOverride>().Name("OverriddenProperty").Description("The overridden property of the test").Resolve(context => context.Source.OverriddenProperty);
 		SetupFields();
 	}
 

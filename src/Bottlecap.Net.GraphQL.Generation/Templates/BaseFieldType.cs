@@ -35,7 +35,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                 }
 
                 return _definition.Parent.IsDescriptionGenerated 
-                       ? $"The {_definition.Property.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()} of {_definition.Property.ReflectedType.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()}"
+                       ? $"The {_definition.Property.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()} of the {_definition.Parent.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()}"
                        : "";
             }
         }

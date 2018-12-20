@@ -52,7 +52,8 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             var generator = new Generator();
             generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly))
             {
-                Name = "Test"
+                Name = "Test",
+                IsDescriptionGenerated = true
             });
             
             // Assert
@@ -94,7 +95,7 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         [GraphType]
         public class GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly
         {
-            public GraphTypeWithNameOverride Test { get; set; }
+            public GraphTypeWithNameOverride OverriddenProperty { get; set; }
         }
 
         [GraphType(Name = "NewName")]
