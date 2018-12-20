@@ -10,7 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName" />
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly" />
   </ItemGroup>
 
   <ItemGroup>

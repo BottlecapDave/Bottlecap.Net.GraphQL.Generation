@@ -87,8 +87,9 @@ namespace Bottlecap.Net.GraphQL.Generation
             {
                 // This is thrown if the provided type can't be converted into a native graph type
                 var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
+                var name = String.IsNullOrEmpty(graphTypeAttribute?.Name) == false ? graphTypeAttribute?.Name : type.Name;
 
-                return graphTypeAttribute?.IsInput == true ? $"{type.Name}InputGraphType" : $"{type.Name}GraphType";
+                return graphTypeAttribute?.IsInput == true ? $"{name}InputGraphType" : $"{name}GraphType";
             }
         }
     }

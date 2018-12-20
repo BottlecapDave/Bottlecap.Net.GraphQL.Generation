@@ -20,7 +20,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public bool IsOutput { get { return _typeDefinition.IsInput == false; } }
 
-        public string ClassName
+        public string GraphClassName
         {
             get
             {
@@ -35,11 +35,19 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             }
         }
 
-        public string Name
+        public string ClassName
         {
             get
             {
                 return _typeDefinition.Type.Name;
+            }
+        }
+
+        public string Name
+        {
+            get
+            {
+                return _typeDefinition.Name;
             }
         }
 

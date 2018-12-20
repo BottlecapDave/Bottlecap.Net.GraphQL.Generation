@@ -1,0 +1,20 @@
+﻿using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public partial class TestGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly>
+{
+	public TestGraphType()
+	{
+		Name = "Test";
+		Field<NewNameGraphType, UnitTests.Bottlecap.Net.GraphQL.Generation.GraphTypeWithNameOverride>().Name("Test").Description("").Resolve(context => context.Source.Test);
+		SetupFields();
+	}
+
+	partial void SetupFields();
+}
+
+}

@@ -45,6 +45,34 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated));
         }
 
+        [Fact]
+        public void Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly))
+            {
+                Name = "Test"
+            });
+            
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly));
+        }
+
+        [Fact]
+        public void Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated))
+            {
+                Name = "Test"
+            });
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName));
+        }
+
         [GraphType(IsInput=true)]
         public class GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated
         {
@@ -61,6 +89,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         public enum GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGenerated
         {
             Test
+        }
+
+        [GraphType]
+        public class GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly
+        {
+            public GraphTypeWithNameOverride Test { get; set; }
+        }
+
+        [GraphType(Name = "NewName")]
+        public class GraphTypeWithNameOverride
+        {
         }
     }
 }

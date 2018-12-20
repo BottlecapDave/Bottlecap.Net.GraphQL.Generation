@@ -12,11 +12,18 @@ namespace Bottlecap.Net.GraphQL.Generation
 
         public bool IsInput { get; set; }
 
+        public string Name { get; set; }
+
         public bool IsDescriptionGenerated { get; set; }
 
         public TypeDefinition(Type type, GraphTypeAttribute attribute)
             : this(type)
         {
+            if (String.IsNullOrEmpty(attribute.Name) == false)
+            {
+                Name = attribute.Name;
+            }
+
             IsInput = attribute.IsInput;
             IsDescriptionGenerated = attribute.IsDescriptionGenerated;
         }
@@ -24,6 +31,7 @@ namespace Bottlecap.Net.GraphQL.Generation
         public TypeDefinition(Type type)
         {
             Type = type;
+            Name = type.Name;
 
             PropertyDefinitions = new List<PropertyDefinition>();
             var properties = Type.GetProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public);
