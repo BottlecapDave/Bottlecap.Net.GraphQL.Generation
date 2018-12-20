@@ -34,6 +34,17 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_InputGraphTypeReferencesInputGraphType_Then_InputGraphTypeIsGenerated));
         }
 
+        [Fact]
+        public void Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGenerated)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated));
+        }
+
         [GraphType(IsInput=true)]
         public class GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated
         {
@@ -44,6 +55,12 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
         public class GenerateWhenInputGraphTypeReferencesInputGraphTypeThenInputGraphTypeIsGenerated
         {
             public GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated Test { get; set; }
+        }
+
+        [GraphType]
+        public enum GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGenerated
+        {
+            Test
         }
     }
 }
