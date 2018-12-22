@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace UnitTests.Bottlecap.Net.GraphQL.Generation.Support
+namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support
 {
     public class BaseClass
     {

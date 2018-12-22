@@ -5,7 +5,7 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class TestGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
+	public partial class TestGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
 {
 	public TestGraphType()
 	{

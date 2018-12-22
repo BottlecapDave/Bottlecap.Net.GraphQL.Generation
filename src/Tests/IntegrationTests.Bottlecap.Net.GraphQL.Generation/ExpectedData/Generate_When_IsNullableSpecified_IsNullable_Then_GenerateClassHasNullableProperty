@@ -5,7 +5,7 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty>
+	public partial class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty>
 {
 	public GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType()
 	{

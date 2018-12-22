@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <RootNamespace>UnitTests.Bottlecap.Net.GraphQL.Generation.Support</RootNamespace>
+    <RootNamespace>IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support</RootNamespace>
   </PropertyGroup>
 
 </Project>

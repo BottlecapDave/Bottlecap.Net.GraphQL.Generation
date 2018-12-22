@@ -5,7 +5,7 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<UnitTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly>
+	public partial class GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly>
 {
 	public GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType()
 	{

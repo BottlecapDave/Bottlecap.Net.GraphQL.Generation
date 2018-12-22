@@ -3,7 +3,7 @@ using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System.Collections.Generic;
 using Xunit;
 
-namespace UnitTests.Bottlecap.Net.GraphQL.Generation
+namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
 {
     public class GraphTypeIsNullableTests : BaseTests
     {

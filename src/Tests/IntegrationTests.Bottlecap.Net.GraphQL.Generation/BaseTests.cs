@@ -2,7 +2,7 @@
 using System.IO;
 using Xunit;
 
-namespace UnitTests.Bottlecap.Net.GraphQL.Generation
+namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
 {
     public class BaseTests
     {
@@ -12,7 +12,7 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             var result = generator.Generate("Tests");
 
             // Assert
-            using (var stream = typeof(BaseTests).Assembly.GetManifestResourceStream($"UnitTests.Bottlecap.Net.GraphQL.Generation.ExpectedData.{testName}"))
+            using (var stream = typeof(BaseTests).Assembly.GetManifestResourceStream($"IntegrationTests.Bottlecap.Net.GraphQL.Generation.ExpectedData.{testName}"))
             {
                 Assert.NotNull(stream);
 

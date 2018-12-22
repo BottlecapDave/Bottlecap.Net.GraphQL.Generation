@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQLExample.Data", "Exam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2A637A72-840F-4851-B5AE-A3A1CB56C60F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Bottlecap.Net.GraphQL.Generation", "Tests\UnitTests.Bottlecap.Net.GraphQL.Generation\UnitTests.Bottlecap.Net.GraphQL.Generation.csproj", "{BE1D6208-070B-4294-B522-A9F718D1ECC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests.Bottlecap.Net.GraphQL.Generation", "Tests\IntegrationTests.Bottlecap.Net.GraphQL.Generation\IntegrationTests.Bottlecap.Net.GraphQL.Generation.csproj", "{BE1D6208-070B-4294-B522-A9F718D1ECC0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bottlecap.Net.GraphQL.Generation.Cli", "Bottlecap.Net.GraphQL.Generation.Cli\Bottlecap.Net.GraphQL.Generation.Cli.csproj", "{6FAA7D31-67E0-423C-B3A8-ACF87145F3B1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Bottlecap.Net.GraphQL.Generation.Support", "Tests\UnitTests.Bottlecap.Net.GraphQL.Generation.Support\UnitTests.Bottlecap.Net.GraphQL.Generation.Support.csproj", "{3EF5393F-B784-4255-9576-5B35CA63FE95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support", "Tests\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support.csproj", "{3EF5393F-B784-4255-9576-5B35CA63FE95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -2,10 +2,10 @@
 using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System;
 using System.Collections.Generic;
-using UnitTests.Bottlecap.Net.GraphQL.Generation.Support;
+using IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support;
 using Xunit;
 
-namespace UnitTests.Bottlecap.Net.GraphQL.Generation
+namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
 {
     public class GraphTypePropertyTests : BaseTests
     {
