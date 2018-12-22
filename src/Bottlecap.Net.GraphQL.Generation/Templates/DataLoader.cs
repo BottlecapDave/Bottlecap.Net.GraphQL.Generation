@@ -17,8 +17,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             ReturnType = returnType.GetCSharpTypeName();
             Name = method.Name;
-            ClassName = $"{method.DeclaringType.Namespace}.{method.DeclaringType.Name}";
-            KeyType = $"{keyType.Namespace}.{keyType.Name}";
+            ClassName = method.DeclaringType.GetCSharpTypeName();
+            KeyType = keyType.GetCSharpTypeName();
         }
     }
 }

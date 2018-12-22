@@ -1,4 +1,9 @@
-﻿using System;
+﻿/// <summary>
+/// DO NOT EDIT! This class is automatically generated using Bottlecap.Net.GraphQL.Generation.
+/// The source can be found at https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation
+/// </summary>
+
+using System;
 using System.Threading.Tasks;
 using GraphQL.DataLoader;
 using GraphQL.Types;
