@@ -25,9 +25,21 @@ namespace Bottlecap.Net.GraphQL.Generation
 
                 // Remove the weird generic indicator and start our generic definition
                 className = $"{className.Substring(0, genericIndicatorIndex)}<";
-                foreach (var genericType in type.GenericTypeArguments)
+
+                if (type.GenericTypeArguments.Length > 0)
                 {
-                    className = $"{className}{genericType.GetCSharpTypeName()}, ";
+                    foreach (var genericType in type.GenericTypeArguments)
+                    {
+                        className = $"{className}{genericType.GetCSharpTypeName()}, ";
+                    }
+                }
+                else
+                {
+                    var genericParameters = type.GetTypeInfo().GenericTypeParameters;
+                    foreach (var genericType in genericParameters)
+                    {
+                        className = $"{className}{genericType.Name}, ";
+                    }
                 }
 
                 // Remove the trailing comma from our last generic and close the generic definition

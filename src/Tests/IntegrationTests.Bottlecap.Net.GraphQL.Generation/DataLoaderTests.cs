@@ -45,6 +45,17 @@ namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
             ActAndAssertGeneratedResult(generator, nameof(Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated));
         }
 
+        [Fact]
+        public void Generate_When_DataLoaderSpecified_GenericDataLoader_Then_DataloaderGenerated()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterDataLoaders(new TypeDefinition(typeof(IGenericDataLoader<>)));
+
+            // Assert
+            ActAndAssertGeneratedResult(generator, nameof(Generate_When_DataLoaderSpecified_GenericDataLoader_Then_DataloaderGenerated));
+        }
+
         public interface INoDataLoaderNoDictionary
         {
             Task<string> GetByIdAsync(long id);
@@ -70,6 +81,12 @@ namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
             Task<string> GetByIdAsync(long id);
 
             Task DoSomethingAsync();
+        }
+
+        private interface IGenericDataLoader<TType>
+            where TType : class
+        {
+            Task<IDictionary<long, string>> GetByIdsAsync(IEnumerable<long> ids);
         }
 
         private class Foo

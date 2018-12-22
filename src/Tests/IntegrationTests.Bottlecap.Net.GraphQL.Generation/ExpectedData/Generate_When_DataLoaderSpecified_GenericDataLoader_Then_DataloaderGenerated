@@ -1,0 +1,25 @@
+﻿/// <summary>
+/// DO NOT EDIT! This class is automatically generated using Bottlecap.Net.GraphQL.Generation.
+/// The source can be found at https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation
+/// </summary>
+
+using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace Tests
+{
+	public static class IGenericDataLoader_TType_Extensions
+{
+	 public static Task<System.String> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
+                                             IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenericDataLoader<TType> repository,
+                                             Func<System.Int64> keySelector)
+{
+    var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenericDataLoader<TType>.GetByIdsAsync", repository.GetByIdsAsync);
+    return loader.LoadAsync(keySelector());
+}
+
+}
+
+}

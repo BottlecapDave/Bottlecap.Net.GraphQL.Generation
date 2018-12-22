@@ -7,7 +7,20 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
     {
         private readonly TypeDefinition _typeDefinition;
 
-        public string Name {  get { return _typeDefinition.Type.Name; } }
+        public string Name
+        {
+            get
+            {
+                var name = _typeDefinition.Type.GetCSharpTypeName();
+                var namespaceIndex = name.LastIndexOf('.');
+                if (namespaceIndex >= 0)
+                {
+                    name = name.Substring(namespaceIndex + 1);
+                }
+
+                return name.Replace('<', '_').Replace(',', '_').Replace('>', '_').Replace(" ", "");
+            }
+        }
 
         public List<DataLoader> DataLoaders { get; private set; }
 
