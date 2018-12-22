@@ -32,8 +32,8 @@ COPY src/Examples/GraphQLExample/ ./Examples/GraphQLExample/
 COPY src/Examples/GraphQLExample.Data/ ./Examples/GraphQLExample.Data/
 
 # Execute unit tests
-RUN dotnet test ./Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/UnitTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/"
-RUN dotnet test ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/IntegrationTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/" /p:MergeWith='../result/codecoverage/coverage.json'
+RUN dotnet test ./Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/UnitTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/coverage.json"
+RUN dotnet test ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/IntegrationTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/coverage.json" /p:MergeWith='../result/codecoverage/coverage.json'
 
 # Define our environment variables so we can set our package information
 ARG PACKAGE_VERSION

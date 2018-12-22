@@ -25,22 +25,5 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             : base(definition)
         {
         }
-
-        private Type TryExtractGeneric(Type type)
-        {
-            if (type.IsGenericType)
-            {
-                try
-                {
-                    return type.GetGenericArguments()[0].GetGraphTypeFromType(IsNullable);
-                }
-                catch (ArgumentOutOfRangeException)
-                {
-                    return type.GetGenericArguments()[0];
-                }
-            }
-
-            return type;
-        }
     }
 }
