@@ -23,11 +23,7 @@ namespace Bottlecap.Net.GraphQL.Generation
                 using (var reader = new StreamReader(stream))
                 {
                     var template = Handlebars.Compile(reader.ReadToEnd());
-
                     return template(this);
-
-                    //var template = Template.Parse(reader.ReadToEnd());
-                    //return template.Render(Hash.FromAnonymousObject(this));
                 }
             }
         }
