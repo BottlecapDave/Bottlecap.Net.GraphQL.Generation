@@ -17,5 +17,11 @@ namespace Bottlecap.Net.GraphQL.Generation.Attributes
         {
             IsDescriptionGenerated = true;
         }
+
+        public GraphTypeAttribute(string name)
+            : this ()
+        {
+            Name = name;
+        }
     }
 }

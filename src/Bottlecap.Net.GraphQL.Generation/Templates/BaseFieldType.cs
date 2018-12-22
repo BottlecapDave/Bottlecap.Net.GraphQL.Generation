@@ -34,6 +34,11 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                     return attribute.Description;
                 }
 
+                if (String.IsNullOrEmpty(_definition.Overrides.Description) == false)
+                {
+                    return _definition.Overrides.Description;
+                }
+
                 return _definition.Parent.IsDescriptionGenerated 
                        ? $"The {_definition.Property.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()} of the {_definition.Parent.Name.Humanize(LetterCasing.Sentence).ToLowerInvariant()}"
                        : "";

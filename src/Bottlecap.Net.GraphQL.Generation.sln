@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bottlecap.Net.GraphQL.Gener
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support", "Tests\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support.csproj", "{3EF5393F-B784-4255-9576-5B35CA63FE95}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Bottlecap.Net.GraphQL.Generation", "Tests\UnitTests.Bottlecap.Net.GraphQL.Generation\UnitTests.Bottlecap.Net.GraphQL.Generation.csproj", "{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{3EF5393F-B784-4255-9576-5B35CA63FE95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EF5393F-B784-4255-9576-5B35CA63FE95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EF5393F-B784-4255-9576-5B35CA63FE95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -64,6 +70,7 @@ Global
 		{FE614E21-E05A-409B-92A0-648AC2B5A61B} = {B05D2BE7-E050-4F38-B2F6-3B3F86554ED6}
 		{BE1D6208-070B-4294-B522-A9F718D1ECC0} = {2A637A72-840F-4851-B5AE-A3A1CB56C60F}
 		{3EF5393F-B784-4255-9576-5B35CA63FE95} = {2A637A72-840F-4851-B5AE-A3A1CB56C60F}
+		{C3CC1A4E-EFA8-4107-956F-968C86C89DAF} = {2A637A72-840F-4851-B5AE-A3A1CB56C60F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A6449F9F-F36D-4E29-8A7D-5A03630EA928}

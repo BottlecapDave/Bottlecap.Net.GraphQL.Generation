@@ -10,6 +10,7 @@ COPY src/Bottlecap.Net.GraphQL.Generation/*.csproj ./Bottlecap.Net.GraphQL.Gener
 COPY src/Bottlecap.Net.GraphQL.Generation.Attributes/*.csproj ./Bottlecap.Net.GraphQL.Generation.Attributes/
 COPY src/Bottlecap.Net.GraphQL.Generation.Cli/*.csproj ./Bottlecap.Net.GraphQL.Generation.Cli/
 
+COPY src/Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/*.csproj ./Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/
 COPY src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/*.csproj ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/
 COPY src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support/*.csproj ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support/
 
@@ -23,6 +24,7 @@ COPY src/Bottlecap.Net.GraphQL.Generation/ ./Bottlecap.Net.GraphQL.Generation/
 COPY src/Bottlecap.Net.GraphQL.Generation.Attributes/ ./Bottlecap.Net.GraphQL.Generation.Attributes/
 COPY src/Bottlecap.Net.GraphQL.Generation.Cli/ ./Bottlecap.Net.GraphQL.Generation.Cli/
 
+COPY src/Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/ ./Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/
 COPY src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/ ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/
 COPY src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support/ ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support/
 
@@ -30,7 +32,8 @@ COPY src/Examples/GraphQLExample/ ./Examples/GraphQLExample/
 COPY src/Examples/GraphQLExample.Data/ ./Examples/GraphQLExample.Data/
 
 # Execute unit tests
-RUN dotnet test ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/IntegrationTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/"
+RUN dotnet test ./Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/UnitTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/"
+RUN dotnet test ./Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation/IntegrationTests.Bottlecap.Net.GraphQL.Generation.csproj /p:CollectCoverage=true /p:CoverletOutput="../result/codecoverage/" /p:MergeWith='../result/codecoverage/coverage.json'
 
 # Define our environment variables so we can set our package information
 ARG PACKAGE_VERSION
