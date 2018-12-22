@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public static class IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGeneratedExtensions
-{
-	public static Task<System.Collections.Generic.IEnumerable<IntegrationTests.Bottlecap.Net.GraphQL.Generation.Foo>> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
-                                              IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated repository,
-                                              Func<System.Int64> keySelector)
-{
-    var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.Collections.Generic.IEnumerable<IntegrationTests.Bottlecap.Net.GraphQL.Generation.Foo>>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
-    return loader.LoadAsync(keySelector());
-}
-
-}
+    public static class IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGeneratedExtensions
+    {
+        public static Task<System.Collections.Generic.IEnumerable<IntegrationTests.Bottlecap.Net.GraphQL.Generation.Foo>> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
+                                                      IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated repository,
+                                                      Func<System.Int64> keySelector)
+        {
+            var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.Collections.Generic.IEnumerable<IntegrationTests.Bottlecap.Net.GraphQL.Generation.Foo>>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithCollectionPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
+            return loader.LoadAsync(keySelector());
+        }
+    
+    }
 
 }

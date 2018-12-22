@@ -10,8 +10,8 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGeneratedGraphType : EnumerationGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGenerated>
-{
-}
+    public partial class GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGeneratedGraphType : EnumerationGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsEnumThenEnumerationGraphTypeIsGenerated>
+    {
+    }
 
 }

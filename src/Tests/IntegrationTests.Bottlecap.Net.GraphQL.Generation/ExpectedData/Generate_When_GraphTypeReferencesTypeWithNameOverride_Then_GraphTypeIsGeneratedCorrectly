@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class TestGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly>
-{
-	public TestGraphType()
-	{
-		Name = "Test";
-		Field<NewNameGraphType, IntegrationTests.Bottlecap.Net.GraphQL.Generation.GraphTypeWithNameOverride>().Name("OverriddenProperty").Description("The overridden property of the test").Resolve(context => context.Source.OverriddenProperty);
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class TestGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeReferencesTypeWithNameOverrideThenGraphTypeIsGeneratedCorrectly>
+    {
+        public TestGraphType()
+        {
+            Name = "Test";
+            Field<NewNameGraphType, IntegrationTests.Bottlecap.Net.GraphQL.Generation.GraphTypeWithNameOverride>().Name("OverriddenProperty").Description("The overridden property of the test").Resolve(context => context.Source.OverriddenProperty);
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

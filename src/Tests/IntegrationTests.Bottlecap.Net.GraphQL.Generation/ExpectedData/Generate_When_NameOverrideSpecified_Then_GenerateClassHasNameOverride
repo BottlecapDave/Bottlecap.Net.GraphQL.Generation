@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride>
-{
-	public GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType()
-	{
-		Name = "GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride";
-		Field(x => x.Name, nullable: false).Name("NewName").Description("");
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride>
+    {
+        public GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverrideGraphType()
+        {
+            Name = "GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride";
+            Field(x => x.Name, nullable: false).Name("NewName").Description("");
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

@@ -10,15 +10,15 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGeneratedInputGraphType : InputObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
-{
-	public GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGeneratedInputGraphType()
-	{
-		Name = "GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated";
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGeneratedInputGraphType : InputObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
+    {
+        public GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGeneratedInputGraphType()
+        {
+            Name = "GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated";
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

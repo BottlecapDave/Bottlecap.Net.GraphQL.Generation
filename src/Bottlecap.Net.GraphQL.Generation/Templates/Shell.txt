@@ -10,8 +10,8 @@ using GraphQL.Types;
 
 namespace {{Namespace}}
 {
-	{{#each Classes}}
-	{{{this}}}
+    {{#each Classes}}
+    {{{indent this '    '}}}
 
-	{{/each}}
+    {{/each}}
 }

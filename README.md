@@ -58,17 +58,17 @@ and here is the result...
 ```
 public partial class UserGraphType : ObjectGraphType<GraphQLExample.Data.User>
 {
-	public UserGraphType()
-	{
-		Name = "User";
-		Field(x => x.Id, nullable: false)
+    public UserGraphType()
+    {
+        Name = "User";
+        Field(x => x.Id, nullable: false)
         .Description("The id of the user");
-		Field(x => x.Username, nullable: false)
+        Field(x => x.Username, nullable: false)
         .Description("The username of the user");
-		SetupFields();
-	}
+        SetupFields();
+    }
 
-	partial void SetupFields();
+    partial void SetupFields();
 }
 ```
 
@@ -89,7 +89,7 @@ and here is the result...
 ```
 public static class IUserRepositoryExtensions
 {
-	 public static Task<GraphQLExample.Data.User> GetUsersByIdsAsync(this IDataLoaderContextAccessor accessor, 
+     public static Task<GraphQLExample.Data.User> GetUsersByIdsAsync(this IDataLoaderContextAccessor accessor, 
       GraphQLExample.Data.IUserRepository repository,
       Func<System.Int64> keySelector)
     {

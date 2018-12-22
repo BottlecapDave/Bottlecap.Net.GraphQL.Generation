@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty>
-{
-	public GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType()
-	{
-		Name = "GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty";
-		Field(x => x.Name, nullable: true).Name("Name").Description("");
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty>
+    {
+        public GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullablePropertyGraphType()
+        {
+            Name = "GenerateWhenIsNullableSpecifiedIsNullableThenGenerateClassHasNullableProperty";
+            Field(x => x.Name, nullable: true).Name("Name").Description("");
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

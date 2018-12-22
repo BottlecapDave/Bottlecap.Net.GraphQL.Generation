@@ -1,4 +1,5 @@
 ﻿using HandlebarsDotNet;
+using System;
 using System.IO;
 
 namespace Bottlecap.Net.GraphQL.Generation
@@ -22,7 +23,17 @@ namespace Bottlecap.Net.GraphQL.Generation
 
                 using (var reader = new StreamReader(stream))
                 {
-                    var template = Handlebars.Compile(reader.ReadToEnd());
+                    var handlerBars = Handlebars.Create();
+
+                    // We need to register a helper to help indent multilined content to ensure everything is indented
+                    // correctly
+                    handlerBars.RegisterHelper("indent", new HandlebarsHelper((writer, data, parameters) =>
+                    {
+                        var obj = (object)data;
+                        writer.Write(obj.ToString().Replace(Environment.NewLine, $"{Environment.NewLine}{parameters[1]}"));
+                    }));
+
+                    var template = handlerBars.Compile(reader.ReadToEnd());
                     return template(this);
                 }
             }

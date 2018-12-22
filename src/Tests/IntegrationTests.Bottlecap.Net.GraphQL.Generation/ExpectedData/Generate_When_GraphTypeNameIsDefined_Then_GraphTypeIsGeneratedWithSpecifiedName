@@ -10,15 +10,15 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class TestGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
-{
-	public TestGraphType()
-	{
-		Name = "Test";
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class TestGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenGraphTypeIsInputThenInputGraphTypeIsGenerated>
+    {
+        public TestGraphType()
+        {
+            Name = "Test";
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

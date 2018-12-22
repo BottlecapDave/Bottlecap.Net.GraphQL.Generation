@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public static class IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGeneratedExtensions
-{
-	public static Task<System.String> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
-                                              IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated repository,
-                                              Func<System.Int64> keySelector)
-{
-    var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
-    return loader.LoadAsync(keySelector());
-}
-
-}
+    public static class IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGeneratedExtensions
+    {
+        public static Task<System.String> GetByIdsAsync(this IDataLoaderContextAccessor accessor, 
+                                                      IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated repository,
+                                                      Func<System.Int64> keySelector)
+        {
+            var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
+            return loader.LoadAsync(keySelector());
+        }
+    
+    }
 
 }

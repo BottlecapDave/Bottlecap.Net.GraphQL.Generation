@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly>
-{
-	public GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType()
-	{
-		Name = "GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly";
-		Field<TupleGraphType<StringGraphType, StringGraphType>, System.Tuple<System.String, System.String>>().Name("Generic").Description("").Resolve(context => context.Source.Generic);
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly>
+    {
+        public GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectlyGraphType()
+        {
+            Name = "GenerateWhenPropertyIsGenericThenPropertyIsDefinedCorrectly";
+            Field<TupleGraphType<StringGraphType, StringGraphType>, System.Tuple<System.String, System.String>>().Name("Generic").Description("").Resolve(context => context.Source.Generic);
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

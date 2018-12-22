@@ -1,7 +1,7 @@
 ﻿public static class {{Name}}Extensions
 {
-	{{#each DataLoaders}}
-	{{{this}}}
+    {{#each DataLoaders}}
+    {{{indent this '    '}}}
 
-	{{/each}}
+    {{/each}}
 }

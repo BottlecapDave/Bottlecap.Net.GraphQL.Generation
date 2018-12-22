@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly>
-{
-	public GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectlyGraphType()
-	{
-		Name = "GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly";
-		Field<GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectlyGraphType, IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly>().Name("ClassProperty").Description("").Resolve(context => context.Source.ClassProperty);
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectlyGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly>
+    {
+        public GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectlyGraphType()
+        {
+            Name = "GenerateWhenPropertyIsClassThenPropertyIsDefinedCorrectly";
+            Field<GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectlyGraphType, IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly>().Name("ClassProperty").Description("").Resolve(context => context.Source.ClassProperty);
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

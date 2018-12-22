@@ -10,16 +10,16 @@ using GraphQL.Types;
 
 namespace Tests
 {
-	public partial class GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGeneratedGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated>
-{
-	public GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGeneratedGraphType()
-	{
-		Name = "GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated";
-		Field(x => x.Test, nullable: false).Name("Test").Description("The test of the generate when property description not specified property description generation is true then property description is generated");
-		SetupFields();
-	}
-
-	partial void SetupFields();
-}
+    public partial class GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGeneratedGraphType : ObjectGraphType<IntegrationTests.Bottlecap.Net.GraphQL.Generation.GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated>
+    {
+        public GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGeneratedGraphType()
+        {
+            Name = "GenerateWhenPropertyDescriptionNotSpecifiedPropertyDescriptionGenerationIsTrueThenPropertyDescriptionIsGenerated";
+            Field(x => x.Test, nullable: false).Name("Test").Description("The test of the generate when property description not specified property description generation is true then property description is generated");
+            SetupFields();
+        }
+    
+        partial void SetupFields();
+    }
 
 }

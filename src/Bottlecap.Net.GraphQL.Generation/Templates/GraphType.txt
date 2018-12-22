@@ -1,13 +1,13 @@
 ﻿public partial class {{GraphClassName}} : {{#if IsInput}}InputObjectGraphType{{/if}}{{#if IsOutput}}ObjectGraphType{{/if}}<{{namespace}}.{{ClassName}}>
 {
-	public {{GraphClassName}}()
-	{
-		Name = "{{Name}}";
-		{{#each Fields}}
-		{{{this}}}
-		{{/each}}
-		SetupFields();
-	}
+    public {{GraphClassName}}()
+    {
+        Name = "{{Name}}";
+        {{#each Fields}}
+        {{{indent this '        '}}}
+        {{/each}}
+        SetupFields();
+    }
 
-	partial void SetupFields();
+    partial void SetupFields();
 }
