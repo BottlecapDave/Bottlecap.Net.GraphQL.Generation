@@ -1,6 +1,7 @@
 ﻿using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Bottlecap.Net.GraphQL.Generation
 {
@@ -19,13 +20,7 @@ namespace Bottlecap.Net.GraphQL.Generation
         public TypeDefinition(Type type, GraphTypeAttribute attribute)
             : this(type)
         {
-            if (String.IsNullOrEmpty(attribute.Name) == false)
-            {
-                Name = attribute.Name;
-            }
-
-            IsInput = attribute.IsInput;
-            IsDescriptionGenerated = attribute.IsDescriptionGenerated;
+            ProcessGraphTypeAttribute(attribute);
         }
 
         public TypeDefinition(Type type)
@@ -39,6 +34,17 @@ namespace Bottlecap.Net.GraphQL.Generation
             {
                 PropertyDefinitions.Add(new PropertyDefinition(this, property));
             }
+        }
+
+        private void ProcessGraphTypeAttribute(GraphTypeAttribute attribute)
+        {
+            if (String.IsNullOrEmpty(attribute.Name) == false)
+            {
+                Name = attribute.Name;
+            }
+
+            IsInput = attribute.IsInput;
+            IsDescriptionGenerated = attribute.IsDescriptionGenerated;
         }
     }
 }
