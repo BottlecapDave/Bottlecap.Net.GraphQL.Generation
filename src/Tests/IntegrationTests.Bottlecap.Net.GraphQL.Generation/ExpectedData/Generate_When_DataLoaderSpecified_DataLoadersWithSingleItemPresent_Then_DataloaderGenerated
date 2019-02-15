@@ -16,7 +16,7 @@ namespace Tests
                                                       IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated repository,
                                                       Func<System.Int64> keySelector)
         {
-            var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated.GetByIdsAsync", repository.GetByIdsAsync);
+            var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithSingleItemPresentThenDataloaderGenerated.GetByIdsAsync", (ids) => repository.GetByIdsAsync(ids));
             return loader.LoadAsync(keySelector());
         }
     
