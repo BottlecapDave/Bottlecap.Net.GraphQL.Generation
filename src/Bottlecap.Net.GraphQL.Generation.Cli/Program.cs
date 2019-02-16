@@ -21,7 +21,14 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
 
         private static void Generate(Options options)
         {
-            var generator = new Generator(new Logger(options.IsVerbose));
+            var generator = new Generator(new Logger(options.IsVerbose), options.TemplateDirectory);
+
+            if (String.IsNullOrEmpty(options.TemplateDirectory) == false &&
+                Directory.Exists(options.TemplateDirectory) == false)
+            {
+                Console.WriteLine($"Failed to find template directory '{options.TemplateDirectory}'");
+                return;
+            }
 
             // Load all of our assemblies into the system first, in case some of the assemblies have some
             // dependencies on each other.

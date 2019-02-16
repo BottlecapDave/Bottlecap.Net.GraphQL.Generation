@@ -61,7 +61,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public List<BaseFieldType> Fields { get; private set; }
 
-        public GraphType(TypeDefinition type)
+        public GraphType(Generator generator, TypeDefinition type)
+            :base (generator)
         {
             _typeDefinition = type;
             Fields = new List<BaseFieldType>();
@@ -76,11 +77,11 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                 if (((propertyDefinition.Property.PropertyType.IsValueType == false) && propertyDefinition.Property.PropertyType != typeof(string)) ||
                     propertyDefinition.Property.PropertyType.IsEnum)
                 {
-                    Fields.Add(new ExplicitFieldType(propertyDefinition));
+                    Fields.Add(new ExplicitFieldType(_generator, propertyDefinition));
                 }
                 else
                 {
-                    Fields.Add(new BaseFieldType(propertyDefinition));
+                    Fields.Add(new BaseFieldType(_generator, propertyDefinition));
                 }
             }
         }

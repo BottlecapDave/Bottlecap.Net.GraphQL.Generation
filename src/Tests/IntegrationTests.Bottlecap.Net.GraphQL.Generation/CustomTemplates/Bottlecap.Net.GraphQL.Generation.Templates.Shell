@@ -1,0 +1,16 @@
+﻿/// <summary>
+/// This is an overridden template
+/// </summary>
+
+using System;
+using System.Threading.Tasks;
+using GraphQL.DataLoader;
+using GraphQL.Types;
+
+namespace {{Namespace}}
+{
+    {{#each Classes}}
+    {{{indent this '    '}}}
+
+    {{/each}}
+}

@@ -14,10 +14,12 @@ namespace Bottlecap.Net.GraphQL.Generation
         private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
         private readonly ILogger _logger;
+        private readonly string _templateDirectoryPath;
 
-        public Generator(ILogger logger = null)
+        public Generator(ILogger logger = null, string templateDirectoryPath = null)
         {
             _logger = logger;
+            _templateDirectoryPath = templateDirectoryPath;
         }
 
         public void RegisterTypes(Assembly assembly)
@@ -62,7 +64,7 @@ namespace Bottlecap.Net.GraphQL.Generation
         {
             _logger?.WriteInfo($"Generating classes in namespace '{targetNamespace}");
 
-            var shell = new Shell()
+            var shell = new Shell(this)
             {
                 Namespace = targetNamespace
             };
@@ -73,18 +75,18 @@ namespace Bottlecap.Net.GraphQL.Generation
 
                 if (item.Type.IsEnum)
                 {
-                    shell.Classes.Add(new EnumerationGraphType(item));
+                    shell.Classes.Add(new EnumerationGraphType(this, item));
                 }
                 else
                 {
-                    shell.Classes.Add(new GraphType(item));
+                    shell.Classes.Add(new GraphType(this, item));
                 }
             }
 
             foreach (var item in _dataLoaderTypesToGenerate)
             {
                 _logger?.WriteInfo($"Generating DataLoaders for '{item.Type.Name}");
-                var dataLoaderClass = new DataLoaderExtensions(item);
+                var dataLoaderClass = new DataLoaderExtensions(this, item);
                 if (dataLoaderClass.DataLoaders.Any())
                 {
                     shell.Classes.Add(dataLoaderClass);
@@ -92,6 +94,27 @@ namespace Bottlecap.Net.GraphQL.Generation
             }
 
             return shell.Classes.Any() ? shell.ToString() : null;
+        }
+
+        public bool TryReadTemplateContent(string templateKey, out string templateContent)
+        {
+            templateContent = null;
+            if (String.IsNullOrEmpty(_templateDirectoryPath))
+            {
+                return false;
+            }
+
+            if (Directory.Exists(_templateDirectoryPath))
+            {
+                var templatePath = Path.Combine(_templateDirectoryPath, templateKey);
+                if (File.Exists(templatePath))
+                {
+                    templateContent = File.ReadAllText(templatePath);
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         private IEnumerable<Type> GetLoadableTypes(Assembly assembly)

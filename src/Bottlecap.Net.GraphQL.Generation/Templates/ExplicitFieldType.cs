@@ -21,8 +21,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             }
         }
 
-        public ExplicitFieldType(PropertyDefinition definition)
-            : base(definition)
+        public ExplicitFieldType(Generator generator, PropertyDefinition definition)
+            : base(generator, definition)
         {
         }
     }

@@ -20,7 +20,8 @@
             }
         }
 
-        public EnumerationGraphType(TypeDefinition type)
+        public EnumerationGraphType(Generator generator, TypeDefinition type)
+            : base(generator)
         {
             _typeDefinition = type;
         }

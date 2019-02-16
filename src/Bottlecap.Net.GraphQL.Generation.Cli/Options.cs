@@ -16,5 +16,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
 
         [Option('v', "verbose", Required = false, HelpText = "Determines if generation output should be verbose")]
         public bool IsVerbose { get; set; }
+
+        [Option('t', "templates", Required = false, HelpText = "Optional directory containing overrides for the inbuilt templates")]
+        public string TemplateDirectory { get; set; }
     }
 }

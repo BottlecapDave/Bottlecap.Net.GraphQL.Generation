@@ -6,11 +6,37 @@ namespace Bottlecap.Net.GraphQL.Generation
 {
     public abstract class BaseTemplate
     {
-        public BaseTemplate()
+        protected readonly Generator _generator;
+
+        public BaseTemplate(Generator generator)
         {
+            _generator = generator;
         }
 
         public override string ToString()
+        {
+            var type = this.GetType();
+
+            if (_generator.TryReadTemplateContent(type.FullName, out string template) == false)
+            {
+                template = GetEmbeddedTemplate();
+            }
+
+            var handlerBars = Handlebars.Create();
+
+            // We need to register a helper to help indent multilined content to ensure everything is indented
+            // correctly
+            handlerBars.RegisterHelper("indent", new HandlebarsHelper((writer, data, parameters) =>
+            {
+                var obj = (object)data;
+                writer.Write(obj.ToString().Replace(Environment.NewLine, $"{Environment.NewLine}{parameters[1]}"));
+            }));
+
+            var compiledTemplate = handlerBars.Compile(template);
+            return compiledTemplate(this);
+        }
+
+        private string GetEmbeddedTemplate()
         {
             var type = this.GetType();
 
@@ -23,18 +49,7 @@ namespace Bottlecap.Net.GraphQL.Generation
 
                 using (var reader = new StreamReader(stream))
                 {
-                    var handlerBars = Handlebars.Create();
-
-                    // We need to register a helper to help indent multilined content to ensure everything is indented
-                    // correctly
-                    handlerBars.RegisterHelper("indent", new HandlebarsHelper((writer, data, parameters) =>
-                    {
-                        var obj = (object)data;
-                        writer.Write(obj.ToString().Replace(Environment.NewLine, $"{Environment.NewLine}{parameters[1]}"));
-                    }));
-
-                    var template = handlerBars.Compile(reader.ReadToEnd());
-                    return template(this);
+                    return reader.ReadToEnd();
                 }
             }
         }

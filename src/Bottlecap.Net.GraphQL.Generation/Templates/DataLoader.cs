@@ -20,7 +20,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public List<string> AdditionalParameterNames { get; private set; } = new List<string>();
 
-        public DataLoader(MethodInfo method, Type keyType, Type returnType)
+        public DataLoader(Generator generator, MethodInfo method, Type keyType, Type returnType)
+            : base(generator)
         {
             ReturnType = returnType.GetCSharpTypeName();
             Name = method.Name;

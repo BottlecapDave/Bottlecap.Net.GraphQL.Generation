@@ -69,7 +69,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
             }
         }
 
-        public BaseFieldType(PropertyDefinition definition)
+        public BaseFieldType(Generator generator, PropertyDefinition definition)
+            : base(generator) 
         {
             _definition = definition;
         }

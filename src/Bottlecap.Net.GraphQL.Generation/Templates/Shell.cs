@@ -8,7 +8,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public List<BaseTemplate> Classes { get; private set; }
 
-        public Shell()
+        public Shell(Generator generator)
+            : base(generator)
         {
             Classes = new List<BaseTemplate>();
         }

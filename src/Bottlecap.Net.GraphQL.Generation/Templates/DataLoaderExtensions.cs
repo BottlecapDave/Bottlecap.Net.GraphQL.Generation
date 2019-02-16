@@ -24,7 +24,8 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
 
         public List<DataLoader> DataLoaders { get; private set; }
 
-        public DataLoaderExtensions(TypeDefinition typeDefinition)
+        public DataLoaderExtensions(Generator generator, TypeDefinition typeDefinition)
+            : base(generator)
         {
             _typeDefinition = typeDefinition;
             DataLoaders = new List<DataLoader>();
@@ -40,7 +41,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
                     var innerType = method.ReturnType.GenericTypeArguments[0];
                     if (innerType.IsGenericType && innerType.GetGenericTypeDefinition() == dictionaryType)
                     {
-                        DataLoaders.Add(new DataLoader(method, innerType.GenericTypeArguments[0], innerType.GenericTypeArguments[1]));
+                        DataLoaders.Add(new DataLoader(generator, method, innerType.GenericTypeArguments[0], innerType.GenericTypeArguments[1]));
                     }
                 }
             }

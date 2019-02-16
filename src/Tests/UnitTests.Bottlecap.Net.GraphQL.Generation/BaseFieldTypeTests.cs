@@ -139,7 +139,8 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
                                  string expectedTemplate)
         {
             // Arrange
-            var template = new BaseFieldType(definition);
+            var generator = new Generator();
+            var template = new BaseFieldType(generator, definition);
 
             // Act
             var actualTemplate = template.ToString();

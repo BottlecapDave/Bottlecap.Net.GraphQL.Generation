@@ -33,6 +33,7 @@
   <ItemGroup>
     <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
     <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
+    <EmbeddedResource Include="ExpectedData\Generate_When_OverriddenTemplatesProvided_Then_OverriddenTemplateUsed" />
   </ItemGroup>
 
   <ItemGroup>
@@ -61,6 +62,12 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generation\Bottlecap.Net.GraphQL.Generation.csproj" />
     <ProjectReference Include="..\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support\IntegrationTests.Bottlecap.Net.GraphQL.Generation.Support.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="CustomTemplates\Bottlecap.Net.GraphQL.Generation.Templates.Shell">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
