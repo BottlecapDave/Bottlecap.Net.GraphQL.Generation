@@ -10,6 +10,8 @@ namespace Bottlecap.Net.GraphQL.Generation
 {
     public class Generator
     {
+        private readonly Dictionary<string, string> _overriddenTemplates = new Dictionary<string, string>();
+
         private readonly List<TypeDefinition> _graphTypesToGenerate = new List<TypeDefinition>();
         private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
@@ -104,12 +106,18 @@ namespace Bottlecap.Net.GraphQL.Generation
                 return false;
             }
 
+            if (_overriddenTemplates.TryGetValue(templateKey, out templateContent))
+            {
+                return true;
+            }
+
             if (Directory.Exists(_templateDirectoryPath))
             {
                 var templatePath = Path.Combine(_templateDirectoryPath, templateKey);
                 if (File.Exists(templatePath))
                 {
                     templateContent = File.ReadAllText(templatePath);
+                    _overriddenTemplates.Add(templateKey, templateContent);
                     return true;
                 }
             }
