@@ -122,6 +122,7 @@ dotnet tool install Bottlecap.Net.GraphQL.Generation.Cli --version 0.3.2-alpha -
 | -o       | The output path of the generated classes. This will generate a single class file. |
 | -n       | The namesoace the generated class will be in |
 | -v       | Verbose mode for the Cli. |
+| -t       | The root directory that houses template overrides. These should be named as the full type name of the corresponding C# template class. Integration tests have an example of using this facility. |
 
 An example of running the application would look like the following.
 
