@@ -12,6 +12,11 @@ namespace Bottlecap.Net.GraphQL.Generation.Templates
         {
             get
             {
+                if (String.IsNullOrEmpty(_definition.Overrides.Name) == false && _definition.Parent.IsInput)
+                {
+                    throw new InvalidOperationException($"Name override of '{_definition.Overrides.Name}' is not supported for '{_definition.Parent.Name}' because it is an input graph type");
+                }
+
                 return _definition.Overrides.Name ?? _definition.Property.Name;
             }
         }

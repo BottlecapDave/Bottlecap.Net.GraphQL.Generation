@@ -1,12 +1,27 @@
 ﻿using Bottlecap.Net.GraphQL.Generation;
 using Bottlecap.Net.GraphQL.Generation.Attributes;
-using System.Collections.Generic;
+using System;
+using System.Reflection;
 using Xunit;
 
 namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
 {
     public class GraphTypeNameOverrideTests : BaseTests
     {
+        [Fact]
+        public void Generate_When_NameOverrideSpecified_ParentIsInput_Then_ExceptionIsThrown()
+        {
+            // Arrange
+            var generator = new Generator();
+            generator.RegisterGraphTypes(new TypeDefinition(typeof(GenerateWhenNameOverrideSpecifiedThenGenerateClassHasNameOverride))
+            {
+                IsInput = true
+            });
+
+            // Assert
+            Assert.Throws<TargetInvocationException>(() => generator.Generate(NAMESPACE));
+        }
+
         [Fact]
         public void Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride()
         {
