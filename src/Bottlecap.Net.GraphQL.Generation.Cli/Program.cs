@@ -21,12 +21,13 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
 
         private static void Generate(Options options)
         {
-            var generator = new Generator(new Logger(options.IsVerbose), options.TemplateDirectory);
+            var logger = new Logger(options.IsVerbose);
+            var generator = new Generator(logger, options.TemplateDirectory);
 
             if (String.IsNullOrEmpty(options.TemplateDirectory) == false &&
                 Directory.Exists(options.TemplateDirectory) == false)
             {
-                Console.WriteLine($"Failed to find template directory '{options.TemplateDirectory}'");
+                logger.WriteInfo($"Failed to find template directory '{options.TemplateDirectory}'");
                 return;
             }
 
@@ -42,7 +43,7 @@ namespace Bottlecap.Net.GraphQL.Generation.Cli
             // Register all our types from our loaded assemblies
             foreach (var assembly in assemblies)
             {
-                System.Console.WriteLine($"Loading {assembly.GetName().Name}...");
+                logger.WriteInfo($"Loading {assembly.GetName().Name}...");
                 generator.RegisterTypes(assembly);
             }
 
