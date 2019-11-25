@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <RootNamespace>Bottlecap.Net.GraphQL.Generation</RootNamespace>
     <PackageProjectUrl>https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/blob/master/LICENSE</PackageLicenseUrl>
@@ -24,13 +24,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="GraphQL" Version="2.3.0" />
-    <PackageReference Include="Handlebars.Net" Version="1.9.5" />
-    <PackageReference Include="Humanizer.Core.uk" Version="2.5.16" />
+    <PackageReference Include="GraphQL" Version="2.4.0" />
+    <PackageReference Include="Handlebars.Net" Version="1.10.1" />
+    <PackageReference Include="Humanizer.Core.uk" Version="2.7.9" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Bottlecap.Net.GraphQL.Generation.Attributes\Bottlecap.Net.GraphQL.Generation.Attributes.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Templates\DataLoader.txt" />
+    <None Remove="Templates\EnumerationGraphType.txt" />
+    <None Remove="Templates\GraphType.txt" />
+    <None Remove="Templates\Shell.txt" />
+    <None Remove="Templates\DataLoaderExtensions.txt" />
+    <None Remove="Templates\BaseFieldType.txt" />
+    <None Remove="Templates\ExplicitFieldType.txt" />
+  </ItemGroup>
 </Project>

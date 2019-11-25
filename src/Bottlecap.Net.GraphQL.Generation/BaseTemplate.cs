@@ -40,11 +40,11 @@ namespace Bottlecap.Net.GraphQL.Generation
         {
             var type = this.GetType();
 
-            using (var stream = type.Assembly.GetManifestResourceStream($"{type.FullName}.txt"))
+            using (var stream = type.Assembly.GetManifestResourceStream(type.FullName))
             {
                 if (stream == null)
                 {
-                    throw new InvalidDataException($"Failed to find template for {type.FullName}");
+                    throw new InvalidDataException($"Failed to find template for {type.FullName}: Available - {String.Join(',', type.Assembly.GetManifestResourceNames())}");
                 }
 
                 using (var reader = new StreamReader(stream))
