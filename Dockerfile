@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.1-sdk AS build
+FROM mcr.microsoft.com/dotnet/core/sdk:3.0 AS build
 WORKDIR /app
 
 # Install coverlet
@@ -40,16 +40,16 @@ ARG PACKAGE_VERSION
 ARG NUGET_PACKAGE_API
 
 # Build and pack attributes
-RUN dotnet build ./Bottlecap.Net.GraphQL.Generation.Attributes/ -c Release -o out /p:Version=$PACKAGE_VERSION
-RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation.Attributes/ -c Release -o out /p:Version=$PACKAGE_VERSION
+RUN dotnet build ./Bottlecap.Net.GraphQL.Generation.Attributes/ -c Release -o ./Bottlecap.Net.GraphQL.Generation.Attributes/out /p:Version=$PACKAGE_VERSION
+RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation.Attributes/ -c Release -o ./Bottlecap.Net.GraphQL.Generation.Attributes/out /p:Version=$PACKAGE_VERSION
 
 # Build and pack generator
-RUN dotnet build ./Bottlecap.Net.GraphQL.Generation/ -c Release -o out /p:Version=$PACKAGE_VERSION
-RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation/ -c Release -o out /p:Version=$PACKAGE_VERSION
+RUN dotnet build ./Bottlecap.Net.GraphQL.Generation/ -c Release -o ./Bottlecap.Net.GraphQL.Generation/out /p:Version=$PACKAGE_VERSION
+RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation/ -c Release -o ./Bottlecap.Net.GraphQL.Generation/out /p:Version=$PACKAGE_VERSION
 
 # Build and pack Cli
-RUN dotnet build ./Bottlecap.Net.GraphQL.Generation.Cli/ -c Release -o out /p:Version=$PACKAGE_VERSION
-RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation.Cli/ -c Release -o out /p:Version=$PACKAGE_VERSION
+RUN dotnet build ./Bottlecap.Net.GraphQL.Generation.Cli/ -c Release -o ./Bottlecap.Net.GraphQL.Generation.Cli/out /p:Version=$PACKAGE_VERSION
+RUN dotnet pack ./Bottlecap.Net.GraphQL.Generation.Cli/ -c Release -o ./Bottlecap.Net.GraphQL.Generation.Cli/out /p:Version=$PACKAGE_VERSION
 
 # Push packages to nuget
 RUN dotnet nuget push ./Bottlecap.Net.GraphQL.Generation/out/Bottlecap.Net.GraphQL.Generation.$PACKAGE_VERSION.nupkg -s https://api.nuget.org/v3/index.json -k $NUGET_PACKAGE_API

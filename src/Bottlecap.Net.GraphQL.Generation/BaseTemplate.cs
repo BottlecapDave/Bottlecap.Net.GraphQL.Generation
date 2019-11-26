@@ -40,7 +40,7 @@ namespace Bottlecap.Net.GraphQL.Generation
         {
             var type = this.GetType();
 
-            using (var stream = type.Assembly.GetManifestResourceStream(type.FullName))
+            using (var stream = type.Assembly.GetManifestResourceStream($"{type.FullName}.txt"))
             {
                 if (stream == null)
                 {
