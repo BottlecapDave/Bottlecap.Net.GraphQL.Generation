@@ -135,5 +135,5 @@ bottlecap-graphql-gen -i <<INPUT DLL> -o <<OUTPUT>> -n GraphQLExample.Schemas
 To build, execute the tests, and deploy to nuget run the following command
 
 ```
-docker image build ./ -t bottlecap.net.graphql.generation:latest --build-arg PACKAGE_VERSION=<<VERSION HERE> --build-arg NUGET_PACKAGE_API=<<NUGET API KEY HERE>
+docker image build ./ -t bottlecap.net.graphql.generation:latest --build-arg PACKAGE_VERSION=<<VERSION HERE>> --build-arg NUGET_PACKAGE_API=<<NUGET API KEY HERE>>
 ```
