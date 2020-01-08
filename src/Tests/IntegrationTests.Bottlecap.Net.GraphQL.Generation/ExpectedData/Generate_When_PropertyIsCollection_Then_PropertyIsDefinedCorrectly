@@ -15,7 +15,7 @@ namespace Tests
         public GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectlyGraphType()
         {
             Name = "GenerateWhenPropertyIsCollectionThenPropertyIsDefinedCorrectly";
-            Field<ListGraphType<IntGraphType>, System.Collections.Generic.IEnumerable<System.Int64>>().Name("Ids").Description("").Resolve(context => context.Source.Ids);
+            Field<ListGraphType<NonNullGraphType<IntGraphType>>, System.Collections.Generic.IEnumerable<System.Int64>>().Name("Ids").Description("").Resolve(context => context.Source.Ids);
             SetupFields();
         }
     

@@ -4,6 +4,7 @@ using Xunit;
 using System.Linq;
 using Bottlecap.Net.GraphQL.Generation.Attributes;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace UnitTests.Bottlecap.Net.GraphQL.Generation
 {
@@ -24,6 +25,24 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
                                                          .Replace("[[Description]]", "")
                                                          .Replace("[[TypeName]]", "UnitTests.Bottlecap.Net.GraphQL.Generation.TestEnum")
                                                          .Replace("[[GraphTypeName]]", "TestEnumGraphType");
+
+            // Act & Assert
+            ExecuteTest(propertyDef, expectedTemplate);
+        }
+
+        [Fact]
+        public void Generate_When_EnumerablePropertyWithNoOverrides_Then_GenerationSuccessful()
+        {
+            // Arrange
+            var typeDef = new TypeDefinition(typeof(TestClass));
+            var propertyName = nameof(TestClass.EnumerableProperty);
+            var propertyDef = typeDef.PropertyDefinitions.First(x => string.Equals(x.Property.Name, propertyName, System.StringComparison.OrdinalIgnoreCase));
+
+            var expectedTemplate = BASE_EXPECTED_TEMPLATE.Replace("[[PropertyName]]", propertyName)
+                                                         .Replace("[[Name]]", propertyName)
+                                                         .Replace("[[Description]]", "")
+                                                         .Replace("[[TypeName]]", "System.Collections.Generic.IEnumerable<System.String>")
+                                                         .Replace("[[GraphTypeName]]", "ListGraphType<NonNullGraphType<StringGraphType>>");
 
             // Act & Assert
             ExecuteTest(propertyDef, expectedTemplate);
@@ -163,6 +182,8 @@ namespace UnitTests.Bottlecap.Net.GraphQL.Generation
             public TestReferencedClass ReferencedClassProperty { get; set; }
 
             public TestInputClass ReferencedInputClassProperty { get; set; }
+
+            public IEnumerable<string> EnumerableProperty { get; set; }
 
             [Description("This property does something")]
             public TestEnum PropertyWithDescription { get; set; }

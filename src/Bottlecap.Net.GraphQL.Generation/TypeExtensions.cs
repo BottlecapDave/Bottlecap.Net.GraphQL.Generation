@@ -53,13 +53,13 @@ namespace Bottlecap.Net.GraphQL.Generation
         {
             if (type.IsArray)
             {
-                return $"ListGraphType<{type.GetElementType().GetCSharpGraphType()}>";
+                return $"ListGraphType<NonNullGraphType<{type.GetElementType().GetCSharpGraphType()}>>";
             }
             else if (typeof(IEnumerable).IsAssignableFrom(type) && type.IsGenericType)
             {
                 if (type.IsGenericType)
                 {
-                    return $"ListGraphType<{type.GenericTypeArguments[0].GetCSharpGraphType()}>";
+                    return $"ListGraphType<NonNullGraphType<{type.GenericTypeArguments[0].GetCSharpGraphType()}>>";
                 }
 
                 return $"ListGraphType<{type.GetCSharpGraphType()}>";
