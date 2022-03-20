@@ -7,10 +7,10 @@
     "commit": "cz",
     "release": "semantic-release",
     "pack": "npm run pack-core && npm run pack-attributes && npm run pack-cli",
-    "pack-core": "(cd src/Bottlecap.Net.GraphQL.Generation && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=${VERSION} /p:PackageReleaseNotes=\"${NOTES}\" /p:PackageReadmeFile=../../readme.md)",
-    "pack-attributes": "(cd src/Bottlecap.Net.GraphQL.Generation && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=${VERSION} /p:PackageReleaseNotes=\"${NOTES}\" /p:PackageReadmeFile=../../readme.md)",
-    "pack-cli": "(cd src/Bottlecap.Net.GraphQL.Generation && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=${VERSION} /p:PackageReleaseNotes=\"${NOTES}\" /p:PackageReadmeFile=../../readme.md)",
-    "publish": "dotnet nuget push ${NUGET_PATH} -k ${NUGET_TOKEN} -s https://api.nuget.org/v3/index.json"
+    "pack-core": "(cd src/Bottlecap.Net.GraphQL.Generation && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=$npm_config_target_version /p:PackageReleaseNotes=\"$npm_config_notes\" /p:PackageReadmeFile=../../readme.md)",
+    "pack-attributes": "(cd src/Bottlecap.Net.GraphQL.Generation.Attributes && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=$npm_config_target_version /p:PackageReleaseNotes=\"$npm_config_notes\" /p:PackageReadmeFile=../../readme.md)",
+    "pack-cli": "(cd src/Bottlecap.Net.GraphQL.Generation.Cli && DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=true dotnet pack -c Release /p:Version=$npm_config_target_version /p:PackageReleaseNotes=\"$npm_config_notes\" /p:PackageReadmeFile=../../readme.md)",
+    "publish": "dotnet nuget push $npm_config_nuget_path -s https://api.nuget.org/v3/index.json -k $NUGET_TOKEN"
   },
   "repository": {
     "type": "git",

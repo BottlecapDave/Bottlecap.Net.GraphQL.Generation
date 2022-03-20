@@ -1,6 +1,12 @@
 {
   "branches": ["master"],
   "plugins": [
+    [
+      "@semantic-release/exec", {
+        "prepareCmd" : "npm run pack --target_version=${nextRelease.version} --notes=\"${nextRelease.notes}\"",
+        "publishCmd": "(npm run publish --nuget_path=./src/Bottlecap.Net.GraphQL.Generation/bin/Release/*.nupkg) && (npm run publish --nuget_path=./src/Bottlecap.Net.GraphQL.Generation.Attributes/bin/Release/*.nupkg) && (npm run publish --nuget_path=./src/Bottlecap.Net.GraphQL.Generation.Cli/bin/Release/*.nupkg)"
+      }
+    ],
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
     [
@@ -12,15 +18,10 @@
     [
       "@semantic-release/github", {
         "assets": [
-          {"path": "./src/Bottlecap.Net.GraphQL.Generation/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.nupkg"},
-          {"path": "./src/Bottlecap.Net.GraphQL.Generation.Attributes/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.Attributes.nupkg"},
-          {"path": "./src/Bottlecap.Net.GraphQL.Generation.Cli/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.Cli.nupkg"}
+          {"path": "src/Bottlecap.Net.GraphQL.Generation/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.nupkg"},
+          {"path": "src/Bottlecap.Net.GraphQL.Generation.Attributes/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.Attributes.nupkg"},
+          {"path": "src/Bottlecap.Net.GraphQL.Generation.Cli/bin/Release/*.nupkg", "label": "Bottlecap.Net.GraphQL.Generation.Cli.nupkg"}
         ]
-      }],
-    [
-      "@semantic-release/exec", {
-        "prepareCmd" : "VERSION=${nextRelease.version} NOTES=${nextRelease.notes} npm run pack",
-        "publishCmd": "NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation/bin/Release/*.nupkg npm run publish && NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation.Attributes/bin/Release/*.nupkg npm run publish && NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation.Cli/bin/Release/*.nupkg npm run publish"
       }
     ],
     [

@@ -20,8 +20,6 @@ jobs:
     - name: Build Cli
       # We have to build the CLI first otherwise our example will fail to build
       run: (cd src/Bottlecap.Net.GraphQL.Generation.Cli && dotnet build --no-restore)
-    - name: Build
-      run: (cd src/Bottlecap.Net.GraphQL.Generation.Cli && dotnet build --no-restore)
   test:
     name: Test
     needs: build
@@ -56,12 +54,13 @@ jobs:
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: npm run release
     - name: Merge main into develop
       uses: devmasx/merge-branch@master
       with:
         type: now
-        message: "chore: Merged main into develop"
-        from_branch: main
+        message: "chore: Merged master into develop"
+        from_branch: master
         target_branch: develop
         github_token: ${{ secrets.GITHUB_TOKEN }}
