@@ -11,15 +11,15 @@
   <ItemGroup>
     <PackageReference Include="GraphQL" Version="2.4.0" />
     <PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.App">
-      <PrivateAssets Condition="'%(PackageReference.Version)' == ''">all</PrivateAssets>
-      <Publish Condition="'%(PackageReference.Version)' == ''">true</Publish>
-    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GraphQLExample.Data\GraphQLExample.Data.csproj" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="ResolveReferences">
+    <Exec Command="dotnet &quot;$(TargetDir)../../../../../Bottlecap.Net.GraphQL.Generation.Cli/bin/$(ConfigurationName)/netcoreapp3.1/Bottlecap.Net.GraphQL.Generation.Cli.dll&quot; -n GraphQLExample.Schemas -o $(TargetDir)../../../../GraphQLExample/Schemas/types.generated.cs -i $(TargetDir)../../../../GraphQLExample.Data/bin/$(ConfigurationName)/netstandard2.1/GraphQLExample.Data.dll" />
+  </Target>
 
 </Project>
