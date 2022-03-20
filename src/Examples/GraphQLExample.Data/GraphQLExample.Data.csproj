@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="dotnet &quot;$(SolutionDir)Bottlecap.Net.GraphQL.Generation.Cli\bin\$(ConfigurationName)\netcoreapp3.0\Bottlecap.Net.GraphQL.Generation.Cli.dll&quot; -n GraphQLExample.Schemas -o $(SolutionDir)Examples\GraphQLExample\Schemas\types.generated.cs -i $(TargetPath)" />
+    <Exec Command="dotnet &quot;$(TargetDir)../../../../../Bottlecap.Net.GraphQL.Generation.Cli/bin/$(ConfigurationName)/netcoreapp3.1/Bottlecap.Net.GraphQL.Generation.Cli.dll&quot; -n GraphQLExample.Schemas -o $(TargetDir)../../../../GraphQLExample/Schemas/types.generated.cs -i $(TargetPath)" />
   </Target>
 
 </Project>
