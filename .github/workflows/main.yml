@@ -60,7 +60,7 @@ jobs:
       uses: devmasx/merge-branch@master
       with:
         type: now
-        message: "chore: Merged main into develop"
+        message: "chore: Merged master into develop"
         from_branch: master
         target_branch: develop
         github_token: ${{ secrets.GITHUB_TOKEN }}
