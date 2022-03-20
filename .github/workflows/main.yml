@@ -54,6 +54,7 @@ jobs:
     - name: Release
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        NUGET_TOKEN: ${{ secrets.NUGET_TOKEN }}
       run: npm run release
     - name: Merge main into develop
       uses: devmasx/merge-branch@master
