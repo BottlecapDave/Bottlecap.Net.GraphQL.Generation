@@ -20,8 +20,6 @@ jobs:
     - name: Build Cli
       # We have to build the CLI first otherwise our example will fail to build
       run: (cd src/Bottlecap.Net.GraphQL.Generation.Cli && dotnet build --no-restore)
-    - name: Build
-      run: (cd src && dotnet build --no-restore)
   test:
     name: Test
     needs: build
