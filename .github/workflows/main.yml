@@ -6,7 +6,7 @@ on:
   push:
     branches:
       - develop
-      - main
+      - master
 jobs:
   build:
     name: Build
@@ -41,7 +41,7 @@ jobs:
         (cd src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation && dotnet test)
   release:
     name: Release
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/master'
     needs: test
     runs-on: ubuntu-latest
     steps:
