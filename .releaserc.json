@@ -19,7 +19,7 @@
       }],
     [
       "@semantic-release/exec", {
-        "prepareCmd" : "VERSION=${nextRelease.version} NOTES=${nextRelease.notes} npm run pack",
+        "prepareCmd" : "VERSION=${nextRelease.version} NOTES=\"${nextRelease.notes}\" npm run pack",
         "publishCmd": "NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation/bin/Release/*.nupkg npm run publish && NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation.Attributes/bin/Release/*.nupkg npm run publish && NUGET_PATH=./src/Bottlecap.Net.GraphQL.Generation.Cli/bin/Release/*.nupkg npm run publish"
       }
     ],
