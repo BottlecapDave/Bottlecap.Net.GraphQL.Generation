@@ -1,0 +1,67 @@
+name: Build
+
+on:
+  schedule:
+    - cron:  '0 1 * * *'
+  push:
+    branches:
+      - develop
+      - main
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1
+    - name: Restore dependencies
+      run: (cd src && dotnet restore)
+    - name: Build Cli
+      # We have to build the CLI first otherwise our example will fail to build
+      run: (cd src/Bottlecap.Net.GraphQL.Generation.Cli && dotnet build --no-restore)
+    - name: Build
+      run: (cd src/Bottlecap.Net.GraphQL.Generation.Cli && dotnet build --no-restore)
+  test:
+    name: Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1
+    - name: Unit tests
+      run: |
+        (cd src/Tests/UnitTests.Bottlecap.Net.GraphQL.Generation/ && dotnet test)
+    - name: Integration tests suite
+      run: |
+        (cd src/Tests/IntegrationTests.Bottlecap.Net.GraphQL.Generation && dotnet test)
+  release:
+    name: Release
+    if: github.ref == 'refs/heads/main'
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1
+    - name: Install dependencies
+      run: npm ci
+    - name: Release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: npm run release
+    - name: Merge main into develop
+      uses: devmasx/merge-branch@master
+      with:
+        type: now
+        message: "chore: Merged main into develop"
+        from_branch: main
+        target_branch: develop
+        github_token: ${{ secrets.GITHUB_TOKEN }}
