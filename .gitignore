@@ -4,3 +4,4 @@
 **/out/
 build.cmd
 src/Examples/GraphQLExample/Schemas/types.generated.cs
+node_modules/
