@@ -94,7 +94,7 @@ public static class IUserRepositoryExtensions
       Func<System.Int64> keySelector)
     {
         var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, GraphQLExample.Data.User>("GraphQLExample.Data.IUserRepository.GetUsersByIdsAsync", repository.GetUsersByIdsAsync);
-        return loader.LoadAsync(keySelector());
+        return loader.LoadAsync(keySelector()).GetResultAsync();
     }
 }
 ```
@@ -128,12 +128,4 @@ An example of running the application would look like the following.
 
 ```
 bottlecap-graphql-gen -i <<INPUT DLL> -o <<OUTPUT>> -n GraphQLExample.Schemas
-```
-
-## Building
-
-To build, execute the tests, and deploy to nuget run the following command
-
-```
-docker image build ./ -t bottlecap.net.graphql.generation:latest --build-arg PACKAGE_VERSION=<<VERSION HERE>> --build-arg NUGET_PACKAGE_API=<<NUGET API KEY HERE>>
 ```
