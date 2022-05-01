@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IntegrationTests.Bottlecap.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.Bottlecap.Net.GraphQL.Generation", "Tests\UnitTests.Bottlecap.Net.GraphQL.Generation\UnitTests.Bottlecap.Net.GraphQL.Generation.csproj", "{C3CC1A4E-EFA8-4107-956F-968C86C89DAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQLExample", "Examples\GraphQLExample\GraphQLExample.csproj", "{78483A91-7841-4473-AB1E-B8547812E6D3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphQLExample", "Examples\GraphQLExample\GraphQLExample.csproj", "{78483A91-7841-4473-AB1E-B8547812E6D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -17,7 +17,7 @@ namespace Tests
                                                       Func<System.Int64> keySelector)
         {
             var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenericDataLoader<TType>.GetByIdsAsync", (ids) => repository.GetByIdsAsync(ids));
-            return loader.LoadAsync(keySelector());
+            return loader.LoadAsync(keySelector()).GetResultAsync();
         }
     
     }

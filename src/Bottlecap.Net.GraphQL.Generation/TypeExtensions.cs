@@ -95,7 +95,7 @@ namespace Bottlecap.Net.GraphQL.Generation
                         var graphTypeAttribute = type.GetCustomAttribute<GraphTypeAttribute>();
                         var name = String.IsNullOrEmpty(graphTypeAttribute?.Name) == false ? graphTypeAttribute?.Name : type.Name;
 
-                        return graphTypeAttribute?.IsInput == true ? $"NonNullGraphType<{name}InputGraphType>" : $"NonNullGraphType<{name}GraphType>";
+                        return graphTypeAttribute?.IsInput == true ? $"{name}InputGraphType" : $"{name}GraphType";
                     }
 
                     return graphType.GenericTypeArguments[0].Name;

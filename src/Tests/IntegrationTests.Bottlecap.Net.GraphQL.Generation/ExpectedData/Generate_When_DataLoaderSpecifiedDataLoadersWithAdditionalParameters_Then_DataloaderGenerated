@@ -18,7 +18,7 @@ namespace Tests
         											  System.Int64 additionalRestriction)
         {
             var loader = accessor.Context.GetOrAddBatchLoader<System.Int64, System.String>("IntegrationTests.Bottlecap.Net.GraphQL.Generation.IGenerateWhenDataLoaderSpecifiedDataLoadersWithAdditionalParametersThenDataloaderGenerated.GetByIdsAsync", (ids) => repository.GetByIdsAsync(ids, additionalRestriction));
-            return loader.LoadAsync(keySelector());
+            return loader.LoadAsync(keySelector()).GetResultAsync();
         }
     
     }
