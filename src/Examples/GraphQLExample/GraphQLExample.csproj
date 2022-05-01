@@ -1,17 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="GraphQL" Version="2.4.0" />
-    <PackageReference Include="GraphQL.Server.Ui.Playground" Version="3.4.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="GraphQL" Version="5.1.1" />
+    <PackageReference Include="GraphQL.DataLoader" Version="5.1.1" />
+    <PackageReference Include="GraphQL.Server.All" Version="6.0.0" />
+    <PackageReference Include="GraphQL.SystemTextJson" Version="5.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="ResolveReferences">
-    <Exec Command="dotnet &quot;$(TargetDir)../../../../../Bottlecap.Net.GraphQL.Generation.Cli/bin/$(ConfigurationName)/netcoreapp3.1/Bottlecap.Net.GraphQL.Generation.Cli.dll&quot; -n GraphQLExample.Schemas -o $(TargetDir)../../../../GraphQLExample/Schemas/types.generated.cs -i $(TargetDir)../../../../GraphQLExample.Data/bin/$(ConfigurationName)/netstandard2.1/GraphQLExample.Data.dll" />
+	<Exec Command="dotnet &quot;$(TargetDir)../../../../../Bottlecap.Net.GraphQL.Generation.Cli/bin/$(ConfigurationName)/net6.0/Bottlecap.Net.GraphQL.Generation.Cli.dll&quot; -n GraphQLExample.Schemas -o $(TargetDir)../../../../GraphQLExample/Schemas/types.generated.cs -i $(TargetDir)../../../../GraphQLExample.Data/bin/$(ConfigurationName)/netstandard2.1/GraphQLExample.Data.dll" />
   </Target>
 
 </Project>

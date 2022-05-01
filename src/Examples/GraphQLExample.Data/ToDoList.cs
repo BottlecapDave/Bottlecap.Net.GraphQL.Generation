@@ -8,7 +8,7 @@ namespace GraphQLExample.Data
     [GraphType]
     public class ToDoList
     {
-        [Description("The id of the to do list")]
+        [Description("The id of the to do list 2")]
         public long Id { get; set; }
 
         [Description("The name of the do list")]

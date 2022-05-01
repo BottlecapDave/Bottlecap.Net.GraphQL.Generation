@@ -22,17 +22,17 @@ namespace Bottlecap.Net.GraphQL.Generation
                 template = GetEmbeddedTemplate();
             }
 
-            var handlerBars = Handlebars.Create();
+            var handleBars = Handlebars.Create();
 
             // We need to register a helper to help indent multilined content to ensure everything is indented
             // correctly
-            handlerBars.RegisterHelper("indent", new HandlebarsHelper((writer, data, parameters) =>
+            handleBars.RegisterHelper("indent", new HandlebarsHelper((writer, data, parameters) =>
             {
-                var obj = (object)data;
+                var obj = data.Value;
                 writer.Write(obj.ToString().Replace(Environment.NewLine, $"{Environment.NewLine}{parameters[1]}"));
             }));
 
-            var compiledTemplate = handlerBars.Compile(template);
+            var compiledTemplate = handleBars.Compile(template);
             return compiledTemplate(this);
         }
 
@@ -44,7 +44,7 @@ namespace Bottlecap.Net.GraphQL.Generation
             {
                 if (stream == null)
                 {
-                    throw new InvalidDataException($"Failed to find template for {type.FullName}: Available - {String.Join(',', type.Assembly.GetManifestResourceNames())}");
+                    throw new InvalidDataException($"Failed to find template for {type.FullName}: Available - {String.Join(",", type.Assembly.GetManifestResourceNames())}");
                 }
 
                 using (var reader = new StreamReader(stream))

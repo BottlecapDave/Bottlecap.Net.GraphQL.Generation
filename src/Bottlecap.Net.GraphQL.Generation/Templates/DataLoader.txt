@@ -4,5 +4,5 @@
 											  {{{this}}}{{/each}})
 {
     var loader = accessor.Context.GetOrAddBatchLoader<{{{KeyType}}}, {{{ReturnType}}}>("{{{ClassName}}}.{{Name}}", ({{PrimaryKeyName}}) => repository.{{Name}}({{PrimaryKeyName}}{{#each AdditionalParameterNames}}, {{{this}}}{{/each}}));
-    return loader.LoadAsync(keySelector());
+    return loader.LoadAsync(keySelector()).GetResultAsync();
 }
