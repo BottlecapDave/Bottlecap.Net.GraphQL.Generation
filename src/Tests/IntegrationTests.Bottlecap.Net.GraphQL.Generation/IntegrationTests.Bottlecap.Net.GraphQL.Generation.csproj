@@ -1,63 +1,69 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>IntegrationTests.Bottlecap.Net.GraphQL.Generation</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
 
-  <ItemGroup>
-    <None Remove="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
-  </ItemGroup>
+		<IsPackable>false</IsPackable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecifiedDataLoadersWithAdditionalParameters_Then_DataloaderGenerated" />
-  </ItemGroup>
+	<ItemGroup>
+	  <None Remove="ExpectedData\Generate_When_DataLoaderSpecifiedDataLoadersWithAdditionalParameters_Then_DataloaderGenerated" />
+	  <None Remove="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
+	  <None Remove="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
+	  <None Remove="ExpectedData\Generate_When_DataLoaderSpecified_GenericDataLoader_Then_DataloaderGenerated" />
+	  <None Remove="ExpectedData\Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated" />
+	  <None Remove="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
+	  <None Remove="ExpectedData\Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName" />
+	  <None Remove="ExpectedData\Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly" />
+	  <None Remove="ExpectedData\Generate_When_InputGraphTypeReferencesInputGraphType_Then_InputGraphTypeIsGenerated" />
+	  <None Remove="ExpectedData\Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty" />
+	  <None Remove="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
+	  <None Remove="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
+	  <None Remove="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
+	  <None Remove="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
+	  <None Remove="ExpectedData\Generate_When_OverriddenTemplatesProvided_Then_OverriddenTemplateUsed" />
+	  <None Remove="ExpectedData\Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly" />
+	  <None Remove="ExpectedData\Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated" />
+	  <None Remove="ExpectedData\Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly" />
+	  <None Remove="ExpectedData\Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly" />
+	  <None Remove="ExpectedData\Generate_When_PropertyIsGeneric_Then_PropertyIsDefinedCorrectly" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_GenericDataLoader_Then_DataloaderGenerated" />
-  </ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecifiedDataLoadersWithAdditionalParameters_Then_DataloaderGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_GenericDataLoader_Then_DataloaderGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_InputGraphTypeReferencesInputGraphType_Then_InputGraphTypeIsGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_OverriddenTemplatesProvided_Then_OverriddenTemplateUsed" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly" />
+	  <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsGeneric_Then_PropertyIsDefinedCorrectly" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeNameIsDefined_Then_GraphTypeIsGeneratedWithSpecifiedName" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsEnum_Then_EnumerationGraphTypeIsGenerated" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeReferencesTypeWithNameOverride_Then_GraphTypeIsGeneratedCorrectly" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_InputGraphTypeReferencesInputGraphType_Then_InputGraphTypeIsGenerated" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_GraphTypeIsInput_Then_InputGraphTypeIsGenerated" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_PropertyComplexType_Then_GenerateClassHasNameOverride" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_OverriddenTemplatesProvided_Then_OverriddenTemplateUsed" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_PropertiesAreInherited_Then_PropertyIsDefinedCorrectly" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="ExpectedData\Generate_When_NameOverrideSpecified_Then_GenerateClassHasNameOverride" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNotNullable_Then_GenerateClassHasNonNullableProperty" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableSpecified_IsNullable_Then_GenerateClassHasNullableProperty" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_IsNullableNotSpecified_PropertyIsNullable_Then_GenerateClassHasNullableProperty" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyDescriptionNotSpecified_PropertyDescriptionGenerationIsTrue_Then_PropertyDescriptionIsGenerated" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsCollection_Then_PropertyIsDefinedCorrectly" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithSingleItemPresent_Then_DataloaderGenerated" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_DataLoaderSpecified_DataLoadersWithCollectionPresent_Then_DataloaderGenerated" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsClass_Then_PropertyIsDefinedCorrectly" />
-    <EmbeddedResource Include="ExpectedData\Generate_When_PropertyIsGeneric_Then_PropertyIsDefinedCorrectly" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="coverlet.msbuild" Version="2.5.0" />
-    <PackageReference Include="xunit" Version="2.4.1" />
-    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
+		<PackageReference Include="xunit" Version="2.4.1" />
+		<PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+		<PackageReference Include="coverlet.collector" Version="3.1.0">
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+			<PrivateAssets>all</PrivateAssets>
+		</PackageReference>
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Bottlecap.Net.GraphQL.Generation\Bottlecap.Net.GraphQL.Generation.csproj" />

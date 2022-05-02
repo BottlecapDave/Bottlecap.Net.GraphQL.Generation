@@ -4,10 +4,10 @@ namespace GraphQLExample.Schemas
 {
     public class Schema : GraphQL.Types.Schema
     {
-        public Schema(IDependencyResolver resolver)
-            : base(resolver)
+        public Schema(IServiceProvider serviceProvider)
+            : base(serviceProvider)
         {
-            Query = resolver.Resolve<Query>();
+            Query = new Query();
         }
     }
 }

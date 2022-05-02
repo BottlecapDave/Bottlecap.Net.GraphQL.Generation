@@ -19,7 +19,7 @@ namespace IntegrationTests.Bottlecap.Net.GraphQL.Generation
             });
 
             // Assert
-            Assert.Throws<TargetInvocationException>(() => generator.Generate(NAMESPACE));
+            Assert.Throws<InvalidOperationException>(() => generator.Generate(NAMESPACE));
         }
 
         [Fact]
