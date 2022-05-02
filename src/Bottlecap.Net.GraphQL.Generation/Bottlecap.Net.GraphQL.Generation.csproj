@@ -5,7 +5,12 @@
     <RootNamespace>Bottlecap.Net.GraphQL.Generation</RootNamespace>
     <PackageProjectUrl>https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\readme.md" Pack="true" PackagePath=""/>
+  </ItemGroup>
   
   <ItemGroup>
     <EmbeddedResource Include="Templates\DataLoader.txt" />
