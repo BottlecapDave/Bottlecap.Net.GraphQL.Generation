@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/compare/v1.0.0...v1.0.1) (2022-06-14)
+
+
+### Bug Fixes
+
+* **cli:** Fixed issue loading assemblies ([e25dae9](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/commit/e25dae99624d03d904f075bae0c3ab0a1d3b3273))
+
 # [1.0.0](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/compare/v0.10.0...v1.0.0) (2022-05-02)
 
 
