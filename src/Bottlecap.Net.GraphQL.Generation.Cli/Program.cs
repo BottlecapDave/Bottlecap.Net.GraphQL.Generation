@@ -35,7 +35,7 @@ class Program
         foreach (var input in options.Inputs)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), input);
-            assemblies.Add(Assembly.LoadFile(path));
+            assemblies.Add(Assembly.LoadFrom(path));
         }
 
         // Register all our types from our loaded assemblies
