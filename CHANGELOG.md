@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/compare/v1.0.1...v1.0.2) (2022-06-16)
+
+
+### Bug Fixes
+
+* **core:** Added verbose logs for template overrides ([398c759](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/commit/398c759f43b003fc1c2041ecceabd1428ee2225f))
+
 ## [1.0.1](https://github.com/BottlecapDave/Bottlecap.Net.GraphQL.Generation/compare/v1.0.0...v1.0.1) (2022-06-14)
 
 
