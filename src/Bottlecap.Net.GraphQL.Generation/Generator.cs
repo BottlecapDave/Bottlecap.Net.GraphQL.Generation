@@ -1,4 +1,4 @@
-﻿using Bottlecap.Net.GraphQL.Generation.Attributes;
+using Bottlecap.Net.GraphQL.Generation.Attributes;
 using Bottlecap.Net.GraphQL.Generation.Templates;
 using System;
 using System.Collections.Generic;
@@ -12,10 +12,14 @@ namespace Bottlecap.Net.GraphQL.Generation
     {
         private readonly Dictionary<string, string> _overriddenTemplates = new Dictionary<string, string>();
 
+        private readonly List<string> _searchedTemplateOverrides = new List<string>();
+
         private readonly List<TypeDefinition> _graphTypesToGenerate = new List<TypeDefinition>();
+        
         private readonly List<TypeDefinition> _dataLoaderTypesToGenerate = new List<TypeDefinition>();
 
         private readonly ILogger _logger;
+        
         private readonly string _templateDirectoryPath;
 
         public Generator(ILogger logger = null, string templateDirectoryPath = null)
@@ -120,6 +124,12 @@ namespace Bottlecap.Net.GraphQL.Generation
                     _overriddenTemplates.Add(templateKey, templateContent);
                     return true;
                 }
+                else if (_searchedTemplateOverrides.Contains(templatePath) == false)
+                {
+                    _logger?.WriteInfo($"Failed to find template override at '{templatePath}'");
+                }
+
+                _searchedTemplateOverrides.Add(templatePath);
             }
 
             return false;
